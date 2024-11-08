@@ -1,6 +1,5 @@
 library router;
 
-export 'di/router_module.dart';
 export 'src/app_navigator.dart';
 export 'src/app_router_config.dart';
 export 'src/page_route.dart';
