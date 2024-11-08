@@ -11,5 +11,6 @@ Future<void> configureRouterDependencies(
   getIt.$initRouterGetIt();
 
   getIt.registerLazySingleton<AppRouterConfig>(
-      () => AppRouterConfig(routes: routes));
+    () => AppRouterConfig(routes: routes),
+  );
 }

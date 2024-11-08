@@ -2,7 +2,6 @@ import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 
-
 abstract class AppNavigator {
   void push(
     Routes route, {
@@ -28,15 +27,12 @@ class AppNavigatorImpl extends AppNavigator {
 
   @override
   void pop<T extends Object?>([T? value]) {
-    canPop()
-        ? _router.pop(value)
-        : SystemNavigator.pop(animated: true);
+    canPop() ? _router.pop(value) : SystemNavigator.pop(animated: true);
   }
 
   @override
   void popUntilRoute(Routes route) {
-    final location =
-        _router.routerDelegate.currentConfiguration.uri.toString();
+    final location = _router.routerDelegate.currentConfiguration.uri.toString();
 
     while (Uri.parse(location).path != route.path) {
       if (!canPop() || location == Routes.home.path) {
@@ -48,8 +44,11 @@ class AppNavigatorImpl extends AppNavigator {
 
   @override
   void push(Routes route, {Map<String, String>? queryParams, Object? params}) {
-    _router.pushNamed(route.name,
-        queryParameters: queryParams ?? {}, extra: params ?? {});
+    _router.pushNamed(
+      route.name,
+      queryParameters: queryParams ?? {},
+      extra: params ?? {},
+    );
   }
 
   @override
