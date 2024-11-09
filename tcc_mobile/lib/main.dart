@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/commons/debugging/debugging.dart';
 import 'package:tcc_mobile/commons/notifier/brightness_notifier.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
-import 'package:tcc_mobile/injection.dart';
+import 'package:tcc_mobile/di/injection.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
 void main() {

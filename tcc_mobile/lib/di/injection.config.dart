@@ -10,9 +10,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:tcc_mobile/app_module.dart' as _i965;
 import 'package:tcc_mobile/commons/router/router.dart' as _i290;
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart' as _i757;
+import 'package:tcc_mobile/di/app_module.dart' as _i700;
 import 'package:tcc_mobile/soma/soma.dart' as _i566;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -36,4 +36,4 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$AppModule extends _i965.AppModule {}
+class _$AppModule extends _i700.AppModule {}
