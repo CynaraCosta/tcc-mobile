@@ -7,26 +7,29 @@ import 'package:tcc_mobile/soma/soma.dart';
 
 void main() {
   configureDependencies();
-  runApp(TccMobile(
-    somaThemeData: GetIt.I.get<SomaThemeData>(),
-  ));
+  runApp(
+    TccMobile(
+      router: GetIt.I.get<AppRouterConfig>(),
+      somaThemeData: GetIt.I.get<SomaThemeData>(),
+    ),
+  );
 }
 
 class TccMobile extends StatefulWidget {
   const TccMobile({
+    required this.router,
     required this.somaThemeData,
     super.key,
   });
 
   final SomaThemeData somaThemeData;
+  final AppRouterConfig router;
 
   @override
   State<TccMobile> createState() => _TccMobileState();
 }
 
 class _TccMobileState extends State<TccMobile> with WidgetsBindingObserver {
-  final AppRouterConfig router = GetIt.I();
-
   @override
   Widget build(BuildContext context) {
     final debuggingFloating = DebuggingFactory.buildDebugging(
@@ -39,7 +42,7 @@ class _TccMobileState extends State<TccMobile> with WidgetsBindingObserver {
       data: widget.somaThemeData,
       child: MaterialApp.router(
         builder: debuggingFloating.createBuilderFloating,
-        routerConfig: router,
+        routerConfig: widget.router,
       ),
     );
   }
