@@ -1,3 +1,10 @@
 <resources> 
     <color name="brand">#1ED7CB</color>
+    <color name="dark-font-primary">#040404</color>
+    <color name="light-font-primary">#FFFFFF</color>
+    <color name="dark-background-primary">#121212</color>
+    <color name="light-background-primary">#F4F4F4</color>
+    <color name="dark-background-secondary">#2E2E2E</color>
+    <color name="light-background-secondary">#FEFEFE</color>
+    <!-- <color name="brand">#1ED7CB</color> -->
 </resources>

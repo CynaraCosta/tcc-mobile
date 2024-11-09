@@ -15,4 +15,22 @@ class ColorName {
 
   /// Color: #1ED7CB
   static const Color brand = Color(0xFF1ED7CB);
+
+  /// Color: #121212
+  static const Color darkBackgroundPrimary = Color(0xFF121212);
+
+  /// Color: #2E2E2E
+  static const Color darkBackgroundSecondary = Color(0xFF2E2E2E);
+
+  /// Color: #040404
+  static const Color darkFontPrimary = Color(0xFF040404);
+
+  /// Color: #F4F4F4
+  static const Color lightBackgroundPrimary = Color(0xFFF4F4F4);
+
+  /// Color: #FEFEFE
+  static const Color lightBackgroundSecondary = Color(0xFFFEFEFE);
+
+  /// Color: #FFFFFF
+  static const Color lightFontPrimary = Color(0xFFFFFFFF);
 }

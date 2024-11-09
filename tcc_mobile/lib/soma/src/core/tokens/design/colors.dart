@@ -44,12 +44,10 @@ abstract class SomaColorFont {
 
 class SomaColorFontDefaultRange {
   SomaColorFontDefaultRange({
-    required this.one,
-    required this.secondary,
+    required this.primary,
   });
 
-  Color one;
-  Color secondary;
+  Color primary;
 }
 
 class SomaColorBrand {
