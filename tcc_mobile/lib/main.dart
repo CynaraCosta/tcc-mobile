@@ -3,42 +3,28 @@ import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/commons/debugging/debugging.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 import 'package:tcc_mobile/injection.dart';
+import 'package:tcc_mobile/soma/soma.dart';
 
 void main() {
   configureDependencies();
-  runApp(const MyApp());
+  runApp(TccMobile(
+    somaThemeData: GetIt.I.get<SomaThemeData>(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    required this.title,
+class TccMobile extends StatefulWidget {
+  const TccMobile({
+    required this.somaThemeData,
     super.key,
   });
 
-  final String title;
+  final SomaThemeData somaThemeData;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<TccMobile> createState() => _TccMobileState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _TccMobileState extends State<TccMobile> with WidgetsBindingObserver {
   final AppRouterConfig router = GetIt.I();
 
   @override
@@ -49,9 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
         print('clicou');
       },
     );
-    return MaterialApp.router(
-      builder: debuggingFloating.createBuilderFloating,
-      routerConfig: router,
+    return SomaTheme(
+      data: widget.somaThemeData,
+      child: MaterialApp.router(
+        builder: debuggingFloating.createBuilderFloating,
+        routerConfig: router,
+      ),
     );
   }
 }

@@ -27,9 +27,9 @@ flutter:
   generate: true
 
   assets:
-    - assets/images
-    - assets/fonts
-    - assets/icons
+    - assets/images/
+    - assets/fonts/
+    - assets/icons/
 
   fonts:
     - family: Inter

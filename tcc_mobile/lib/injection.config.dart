@@ -13,6 +13,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:tcc_mobile/app_module.dart' as _i965;
 import 'package:tcc_mobile/commons/router/router.dart' as _i290;
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart' as _i757;
+import 'package:tcc_mobile/soma/soma.dart' as _i566;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -26,6 +27,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final appModule = _$AppModule();
+    gh.factory<_i566.SomaThemeData>(() => appModule.coreTheme);
     gh.singleton<_i290.AppRouterConfig>(
         () => appModule.providesAppRouterConfig());
     gh.lazySingleton<_i757.AppNavigator>(
