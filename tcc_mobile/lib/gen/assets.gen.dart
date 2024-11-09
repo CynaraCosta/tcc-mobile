@@ -49,9 +49,20 @@ class $AssetsIconsGen {
   List<String> get values => [message];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/logo.svg
+  String get logo => 'assets/images/logo.svg';
+
+  /// List of all assets
+  List<String> get values => [logo];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }

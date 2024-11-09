@@ -13,6 +13,7 @@ dependencies:
   go_router: 8.2.0
   get_it: 7.6.4
   cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.14
 
 dev_dependencies:
   flutter_test:
