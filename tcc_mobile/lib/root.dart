@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:tcc_mobile/commons/debugging/debugging.dart';
 import 'package:tcc_mobile/commons/notifier/brightness_notifier.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
+import 'package:tcc_mobile/gen/colors.gen.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
 class TccMobile extends StatefulWidget {
@@ -64,13 +65,20 @@ class _TccMobileState extends State<TccMobile> with WidgetsBindingObserver {
           },
         );
         bool isInverse = (value == Brightness.dark) ? true : false;
-        return SomaTheme(
-          data: widget.somaThemeData,
-          child: SomaContext(
-            isInverse: isInverse,
-            child: MaterialApp.router(
-              builder: debuggingFloating.createBuilderFloating,
-              routerConfig: widget.router,
+        return Container(
+          decoration: BoxDecoration(
+                color: isInverse
+                    ? ColorName.darkBackgroundPrimary
+                    : ColorName.lightBackgroundPrimary,
+              ),
+          child: SomaTheme(
+            data: widget.somaThemeData,
+            child: SomaContext(
+              isInverse: isInverse,
+              child: MaterialApp.router(
+                builder: debuggingFloating.createBuilderFloating,
+                routerConfig: widget.router,
+              ),
             ),
           ),
         );

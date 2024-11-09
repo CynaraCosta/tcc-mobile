@@ -8,18 +8,15 @@ final AppNavigator appNavigator = GetIt.I.get<AppNavigator>();
 final homeRoute = PageRoute(
   route: Routes.home,
   builder: (_, __) {
-    return Container(
-      color: Colors.purple,
-      child: Center(
-        child: SizedBox(
-          width: 200,
-          height: 100,
-          child: ElevatedButton(
-            onPressed: () {
-              appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
-            },
-            child: const Text('Ir pra example'),
-          ),
+    return Center(
+      child: SizedBox(
+        width: 200,
+        height: 100,
+        child: ElevatedButton(
+          onPressed: () {
+            appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
+          },
+          child: const Text('Ir pra example'),
         ),
       ),
     );
