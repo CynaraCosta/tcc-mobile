@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide PageRoute;
 import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/app/example/example.dart';
+import 'package:tcc_mobile/commons/debugging/routes/debugging_routes.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 
 final AppNavigator appNavigator = GetIt.I.get<AppNavigator>();
@@ -26,4 +27,5 @@ final homeRoute = PageRoute(
 final routes = <PageRoute>[
   homeRoute,
   ...exampleWidgetRoutes,
+  ...xdebuggingRoutes,
 ];
