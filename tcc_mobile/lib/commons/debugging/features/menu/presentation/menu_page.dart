@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_mobile/commons/debugging/features/menu/utils/menu_tabs.dart';
-import 'package:tcc_mobile/commons/debugging/features/network/network_requests_page.dart';
+import 'package:tcc_mobile/commons/debugging/features/network/presentation/network_requests_page.dart';
 import 'package:tcc_mobile/commons/debugging/features/settings/settings_page.dart';
 
 class MenuPage extends StatefulWidget {
