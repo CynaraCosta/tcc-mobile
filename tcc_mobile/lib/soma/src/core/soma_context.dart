@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_mobile/soma/soma.dart';
 
 class SomaContext extends InheritedWidget {
   const SomaContext({
@@ -20,5 +21,15 @@ class SomaContext extends InheritedWidget {
     final SomaContext? result =
         context.dependOnInheritedWidgetOfExactType<SomaContext>();
     return result?.isInverse ?? false;
+  }
+
+  static Color? primaryBackgroundColorOf(BuildContext context) {
+    var tokens = SomaTheme.getDesignTokensOf(context);
+    final SomaContext? result =
+        context.dependOnInheritedWidgetOfExactType<SomaContext>();
+
+    return result?.isInverse == true
+        ? tokens.colors.background.dark.primary
+        : tokens.colors.background.light.primary;
   }
 }
