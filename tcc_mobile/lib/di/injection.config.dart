@@ -14,6 +14,10 @@ import 'package:tcc_mobile/commons/debugging/features/network/data/repository/sh
     as _i792;
 import 'package:tcc_mobile/commons/debugging/features/network/di/network_di_module.dart'
     as _i769;
+import 'package:tcc_mobile/commons/debugging/features/network/domain/network_interceptor.dart'
+    as _i599;
+import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart'
+    as _i113;
 import 'package:tcc_mobile/commons/router/router.dart' as _i290;
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart' as _i757;
 import 'package:tcc_mobile/di/app_module.dart' as _i700;
@@ -35,6 +39,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i566.SomaThemeData>(() => appModule.coreTheme);
     gh.factory<_i792.SharedPreferencesRepository>(
         () => networkDiModule.repository);
+    gh.factory<_i599.NetworkInterceptor>(
+        () => networkDiModule.providesNetworkInterceptor());
+    gh.factory<_i113.NetworkRequestsCubit>(
+        () => networkDiModule.providesNetworkRequestsCubit());
     gh.singleton<_i290.AppRouterConfig>(
         () => appModule.providesAppRouterConfig());
     gh.lazySingleton<_i757.AppNavigator>(

@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_mobile/commons/debugging/features/menu/utils/menu_tabs.dart';
-import 'package:tcc_mobile/commons/debugging/features/network/presentation/network_requests_page.dart';
+import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart';
+import 'package:tcc_mobile/commons/debugging/features/network/presentation/page/network_requests_page.dart';
 import 'package:tcc_mobile/commons/debugging/features/settings/settings_page.dart';
 
 class MenuPage extends StatefulWidget {
-  const MenuPage({super.key});
+  const MenuPage({
+    required this.networkRequestsCubit,
+    super.key,
+  });
+
+  final NetworkRequestsCubit networkRequestsCubit;
 
   @override
   State<MenuPage> createState() => _MenuPageState();
 }
 
-class _MenuPageState extends State<MenuPage> {
+class _MenuPageState extends State<MenuPage> { 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -28,10 +34,12 @@ class _MenuPageState extends State<MenuPage> {
                 .toList(),
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            NetworkRequestsPage(),
-            SettingsPage(),
+            NetworkRequestsPage(
+              cubit: widget.networkRequestsCubit,
+            ),
+            const SettingsPage(),
           ],
         ),
       ),

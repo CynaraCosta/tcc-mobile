@@ -4,6 +4,7 @@ import 'package:tcc_mobile/commons/debugging/features/network/data/data_source/s
 import 'package:tcc_mobile/commons/debugging/features/network/data/factory/api_response_factory.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/data/repository/shared_preferences_repository.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/domain/network_interceptor.dart';
+import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart';
 
 @module
 abstract class NetworkDiModule {
@@ -19,10 +20,13 @@ abstract class NetworkDiModule {
 
   NoOpDataSource get _noOpDataSource => NoOpDataSource();
 
-  NetworkInterceptor get _networkInterceptor => NetworkInterceptor();
+  NetworkInterceptor providesNetworkInterceptor() => NetworkInterceptor();
 
   SharedPreferencesRepository get repository => SharedPreferencesRepositoryImpl(
         _dataSource,
         _noOpDataSource,
       );
+
+  NetworkRequestsCubit providesNetworkRequestsCubit() =>
+      NetworkRequestsCubit(repository: repository);
 }

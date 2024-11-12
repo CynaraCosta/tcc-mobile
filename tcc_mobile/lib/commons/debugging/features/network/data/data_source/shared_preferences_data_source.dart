@@ -34,10 +34,11 @@ class SharedPreferencesDataSource {
 
   Future<List<DebuggingModel>> findAll() async {
     try {
+      
       final preferences = await SharedPreferences.getInstance();
       final allData = List<DebuggingModel>.empty(growable: true);
       final storedData = preferences.getString(preferenceKey);
-
+      
       if (storedData == null) {
         return [];
       }
