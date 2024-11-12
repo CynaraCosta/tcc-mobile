@@ -17,7 +17,7 @@ final homeRoute = PageRoute(
         child: ElevatedButton(
           onPressed: () async {
             final dio = GetIt.I.get<Dio>();
-            await dio.get('https://jsonplaceholder.typicode.com/posts/1');
+            await dio.get('/posts/1');
             appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
           },
           child: const Text('Ir pra example'),
