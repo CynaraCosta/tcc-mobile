@@ -26,7 +26,6 @@ class SharedPreferencesDataSource {
       newData
         ..addAll(storedData)
         ..add(model);
-
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString(preferenceKey, jsonEncode(newData));
     } catch (_) {}
@@ -34,11 +33,10 @@ class SharedPreferencesDataSource {
 
   Future<List<DebuggingModel>> findAll() async {
     try {
-      
       final preferences = await SharedPreferences.getInstance();
       final allData = List<DebuggingModel>.empty(growable: true);
       final storedData = preferences.getString(preferenceKey);
-      
+
       if (storedData == null) {
         return [];
       }

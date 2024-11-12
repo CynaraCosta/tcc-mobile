@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart' hide PageRoute;
 import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/app/example/example.dart';
@@ -14,7 +15,9 @@ final homeRoute = PageRoute(
         width: 200,
         height: 100,
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
+            final dio = GetIt.I.get<Dio>();
+            await dio.get('https://jsonplaceholder.typicode.com/posts/1');
             appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
           },
           child: const Text('Ir pra example'),
