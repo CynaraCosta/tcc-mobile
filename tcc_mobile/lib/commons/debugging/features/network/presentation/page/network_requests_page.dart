@@ -5,6 +5,8 @@ import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_state.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/widgets/network_request_feedback_widget.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/widgets/network_request_tile_widget.dart';
+import 'package:tcc_mobile/commons/debugging/features/network_details/pages/network_request_details_page.dart';
+import 'package:tcc_mobile/commons/debugging/utils/context_extensions.dart';
 
 class NetworkRequestsPage extends StatelessWidget {
   const NetworkRequestsPage({
@@ -48,8 +50,9 @@ class NetworkRequestsPage extends StatelessWidget {
                           return NetworkRequestTile(
                             model: model,
                             onTap: () {
-                              // ignore: avoid_print
-                              print('cliclou no ${model.path}');
+                              context.pushWidget(
+                                NetworkRequestDetailsPage(model: model),
+                              );
                             },
                           );
                         },

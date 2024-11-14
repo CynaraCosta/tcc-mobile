@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/data/models/api_response_model.dart';
-import 'package:tcc_mobile/commons/debugging/features/network_details/overview_page.dart';
-import 'package:tcc_mobile/commons/debugging/features/network_details/request_page.dart';
-import 'package:tcc_mobile/commons/debugging/features/network_details/response_page.dart';
+import 'package:tcc_mobile/commons/debugging/features/network_details/pages/overview_page.dart';
+import 'package:tcc_mobile/commons/debugging/features/network_details/pages/request_page.dart';
+import 'package:tcc_mobile/commons/debugging/features/network_details/pages/response_page.dart';
 import 'package:tcc_mobile/commons/debugging/utils/context_extensions.dart';
 
 class NetworkRequestDetailsPage extends StatelessWidget {
