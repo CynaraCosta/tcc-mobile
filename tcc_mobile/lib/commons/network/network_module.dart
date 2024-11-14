@@ -7,7 +7,7 @@ import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart';
 @module
 abstract class NetworkModule {
   @Named('BaseUrl')
-  String get baseUrl => 'https://jsonplaceholder.typicode.com/';
+  String get baseUrl => 'https://jsonplaceholder.typicode.com';
 
   @Named('NetworkInterceptor')
   Interceptor providePrettyLogger() => GetIt.I.get<NetworkInterceptor>();

@@ -5,13 +5,13 @@ import 'package:tcc_mobile/commons/network/data/request_type.dart';
 class RequestParams extends Equatable {
   const RequestParams({
     required this.endpoint,
-    required this.savePath,
     required this.requestType,
-    required this.body,
-    required this.queryParams,
-    required this.options,
-    required this.successCodes,
-    required this.progress,
+    this.savePath,
+    this.body,
+    this.queryParams,
+    this.options,
+    this.successCodes,
+    this.progress,
   });
 
   final String endpoint;
@@ -88,9 +88,9 @@ class RequestUploadParams extends RequestParams {
     super.savePath,
     super.successCodes,
   }) : super(
-    requestType: RequestType.post,
-    body: FormData.fromMap({
-      'file': MultipartFile.fromFileSync(filePath, filename: fileName),
-    }),
-  );
+          requestType: RequestType.post,
+          body: FormData.fromMap({
+            'file': MultipartFile.fromFileSync(filePath, filename: fileName),
+          }),
+        );
 }

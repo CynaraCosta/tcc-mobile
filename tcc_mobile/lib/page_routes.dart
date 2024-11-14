@@ -1,8 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart' hide PageRoute;
 import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/app/example/example.dart';
 import 'package:tcc_mobile/commons/debugging/routes/debugging_routes.dart';
+import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart';
+import 'package:tcc_mobile/commons/network/data/request_params.dart';
+import 'package:tcc_mobile/commons/network/data/request_type.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 
 final AppNavigator appNavigator = GetIt.I.get<AppNavigator>();
@@ -16,8 +18,15 @@ final homeRoute = PageRoute(
         height: 100,
         child: ElevatedButton(
           onPressed: () async {
-            final dio = GetIt.I.get<Dio>();
-            await dio.get('/posts/1');
+            final delegate = GetIt.I.get<ApiDataSourceDelegate>();
+            delegate.fetchAsFuture(
+              params: const RequestParams(
+                endpoint: '/posts/1',
+                requestType: RequestType.get,
+              ),
+              mapper: (mapper) {},
+            );
+            // await dio.get('/posts/1');
             appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
           },
           child: const Text('Ir pra example'),
