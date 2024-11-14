@@ -19,6 +19,8 @@ import 'package:tcc_mobile/commons/debugging/features/network/domain/network_int
     as _i599;
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart'
     as _i113;
+import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart'
+    as _i1064;
 import 'package:tcc_mobile/commons/network/network_module.dart' as _i981;
 import 'package:tcc_mobile/commons/router/router.dart' as _i290;
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart' as _i757;
@@ -46,6 +48,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => networkDiModule.providesNetworkInterceptor());
     gh.factory<_i113.NetworkRequestsCubit>(
         () => networkDiModule.providesNetworkRequestsCubit());
+    gh.factory<_i1064.ApiDataSourceDelegate>(
+        () => networkModule.providesApiDataSourceDelegate());
     gh.singleton<_i290.AppRouterConfig>(
         () => appModule.providesAppRouterConfig());
     gh.factory<String>(
