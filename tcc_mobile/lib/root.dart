@@ -60,17 +60,16 @@ class _TccMobileState extends State<TccMobile> with WidgetsBindingObserver {
       builder: (context, value, child) {
         final debuggingFloating = DebuggingFactory.buildDebugging(
           () {
-            // ignore: avoid_print
-            print('clicou $value');
+            widget.router.pushNamed(Routes.xdebuggingPage.name);
           },
         );
         bool isInverse = (value == Brightness.dark) ? true : false;
         return Container(
           decoration: BoxDecoration(
-                color: isInverse
-                    ? ColorName.darkBackgroundPrimary
-                    : ColorName.lightBackgroundPrimary,
-              ),
+            color: isInverse
+                ? ColorName.darkBackgroundPrimary
+                : ColorName.lightBackgroundPrimary,
+          ),
           child: SomaTheme(
             data: widget.somaThemeData,
             child: SomaContext(

@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart' hide PageRoute;
 import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/app/example/example.dart';
+import 'package:tcc_mobile/commons/debugging/routes/debugging_routes.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 
 final AppNavigator appNavigator = GetIt.I.get<AppNavigator>();
@@ -13,7 +15,9 @@ final homeRoute = PageRoute(
         width: 200,
         height: 100,
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
+            final dio = GetIt.I.get<Dio>();
+            await dio.get('/posts/1');
             appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
           },
           child: const Text('Ir pra example'),
@@ -26,4 +30,5 @@ final homeRoute = PageRoute(
 final routes = <PageRoute>[
   homeRoute,
   ...exampleWidgetRoutes,
+  ...xdebuggingRoutes,
 ];
