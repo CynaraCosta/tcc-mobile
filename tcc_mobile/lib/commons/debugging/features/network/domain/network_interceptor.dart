@@ -1,5 +1,6 @@
-import 'dart:convert';
+// ignore_for_file: unused_element, avoid_print
 
+import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/commons/debugging/features/network/data/models/api_response_model.dart';
@@ -18,6 +19,7 @@ class NetworkInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
+    // _logRequest(options);
     _requestTime = DateTime.now();
     handler.next(options);
   }
@@ -33,6 +35,7 @@ class NetworkInterceptor extends Interceptor {
         _cURLRepresentation(response.requestOptions),
       );
     }
+    // _logResponse(response);
     handler.next(response);
   }
 
@@ -44,6 +47,7 @@ class NetworkInterceptor extends Interceptor {
     if (DebuggingSettings.enabled) {
       await _saveError(err, _cURLRepresentation(err.requestOptions));
     }
+    // _logError(err);
     handler.next(err);
   }
 
@@ -141,5 +145,40 @@ class NetworkInterceptor extends Interceptor {
     }
     curl.add('"${options.uri.toString()}"');
     return curl.join(' \\\n\t');
+  }
+
+  void _logRequest(RequestOptions options) {
+    print(
+      '\n*** Request ***\n'
+      'URL: ${options.baseUrl}${options.path}\n'
+      'Method: ${options.method}\n'
+      'Headers: ${jsonEncode(options.headers)}\n'
+      'Query Parameters: ${jsonEncode(options.queryParameters)}\n'
+      'Body: ${options.data != null ? jsonEncode(options.data) : 'No Body'}\n'
+      '*** End of Request ***\n',
+    );
+  }
+
+  void _logResponse(Response<dynamic> response) {
+    print(
+      '\n*** Response ***\n'
+      'URL: ${response.requestOptions.baseUrl}${response.requestOptions.path}\n'
+      'Status Code: ${response.statusCode}\n'
+      'Headers: ${jsonEncode(response.headers.map)}\n'
+      'Body: ${response.data != null ? jsonEncode(response.data) : 'No Body'}\n'
+      '*** End of Response ***\n',
+    );
+  }
+
+  void _logError(DioException err) {
+    print(
+      '\n*** Error ***\n'
+      'URL: ${err.requestOptions.baseUrl}${err.requestOptions.path}\n'
+      'Status Code: ${err.response?.statusCode ?? 'Unknown'}\n'
+      'Error: ${err.message}\n'
+      // ignore: lines_longer_than_80_chars
+      'Body: ${err.response?.data != null ? jsonEncode(err.response?.data) : 'No Body'}\n'
+      '*** End of Error ***\n',
+    );
   }
 }
