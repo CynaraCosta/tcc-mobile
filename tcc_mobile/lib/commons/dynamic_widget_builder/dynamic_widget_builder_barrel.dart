@@ -21,3 +21,5 @@ export 'domain/strategy/by_widget/get_content_by_widget_loading_strategy.dart';
 export 'domain/strategy/by_widget/get_content_by_widget_strategy.dart';
 export 'domain/strategy/content_by_widget_strategy.dart';
 export 'domain/strategy/content_by_widget_strategy_factory.dart';
+export 'presentation/dynamic_widget_builder.dart';
+export 'presentation/future/dynamic_future_widget_builder.dart';
