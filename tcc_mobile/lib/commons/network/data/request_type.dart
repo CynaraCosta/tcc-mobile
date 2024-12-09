@@ -4,5 +4,10 @@ enum RequestType {
   put,
   delete,
   patch,
-  download,
+  download;
+
+  factory RequestType.getByName(String? name) => RequestType.values.firstWhere(
+        (e) => e.name == name,
+        orElse: () => RequestType.get,
+      );
 }
