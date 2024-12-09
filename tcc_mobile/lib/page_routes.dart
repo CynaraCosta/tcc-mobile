@@ -21,7 +21,7 @@ final homeRoute = PageRoute(
             final delegate = GetIt.I.get<ApiDataSourceDelegate>();
             delegate.fetchAsFuture(
               params: const RequestParams(
-                endpoint: '/posts/1',
+                endpoint: '/v1/conversations',
                 requestType: RequestType.get,
               ),
               mapper: (mapper) {},
