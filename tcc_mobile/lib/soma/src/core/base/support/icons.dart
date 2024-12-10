@@ -6,11 +6,16 @@ class BaseSomaIcons implements SomaIcons {
   @override
   String get message => Assets.icons.message;
 
+  @override
+  String get gallery => Assets.icons.gallery;
+
   String getIconPath(SomaIcon? icon, String? iconName) {
     if (icon != null) {
       switch (icon.value) {
         case SomaIconsStrings.message:
           return message;
+        case SomaIconsStrings.gallery:
+          return gallery;
         default:
           throw Exception('Icon not found');
       }
@@ -18,6 +23,8 @@ class BaseSomaIcons implements SomaIcons {
       switch (iconName) {
         case SomaIconsStrings.message:
           return message;
+        case SomaIconsStrings.gallery:
+          return gallery;
         default:
           throw Exception('Icon Name not found');
       }

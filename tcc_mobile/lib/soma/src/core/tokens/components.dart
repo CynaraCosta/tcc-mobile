@@ -1,3 +1,5 @@
+import 'package:tcc_mobile/soma/soma.dart';
+
 abstract class SomaComponentTokens {
   SomaComponentTokens({
     required this.defaultTokens,
@@ -8,5 +10,9 @@ abstract class SomaComponentTokens {
 }
 
 abstract class SomaComponents {
-  SomaComponents();
+  SomaComponents({
+    required this.typography,
+  });
+
+  final SomaTypographyTokens typography;
 }

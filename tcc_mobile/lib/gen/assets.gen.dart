@@ -42,11 +42,14 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/gallery.svg
+  String get gallery => 'assets/icons/gallery.svg';
+
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
   /// List of all assets
-  List<String> get values => [message];
+  List<String> get values => [gallery, message];
 }
 
 class $AssetsImagesGen {

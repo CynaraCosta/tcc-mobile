@@ -6,6 +6,8 @@ import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart';
 import 'package:tcc_mobile/commons/network/data/request_params.dart';
 import 'package:tcc_mobile/commons/network/data/request_type.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
+import 'package:tcc_mobile/gen/colors.gen.dart';
+import 'package:tcc_mobile/soma/soma.dart';
 
 final AppNavigator appNavigator = GetIt.I.get<AppNavigator>();
 
@@ -26,10 +28,15 @@ final homeRoute = PageRoute(
               ),
               mapper: (mapper) {},
             );
-            // await dio.get('/posts/1');
             appNavigator.pushToUrl(Uri.parse('/example/example_widget'));
           },
-          child: const Text('Ir pra example'),
+          child: const SomaText(
+            text: 'Testeee cynarinha',
+            type: SomaTypographyType.title1,
+            customTextStyle: TextStyle(
+              color: ColorName.brand,
+            ),
+          ),
         ),
       ),
     );

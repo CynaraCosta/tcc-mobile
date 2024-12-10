@@ -19,8 +19,18 @@ class BaseSomaComponents implements SomaComponents {
   });
 
   SomaDesignTokens designTokens;
+
+  @override
+  SomaTypographyTokens get typography => BaseSomaTypographyTokens(
+        designTokens: designTokens,
+      );
 }
 
 class BaseSomaComponentsInverse extends BaseSomaComponents {
   BaseSomaComponentsInverse({required super.designTokens});
+
+  @override
+  SomaTypographyTokens get typography => BaseSomaTypographyInverseTokens(
+        designTokens: designTokens,
+      );
 }
