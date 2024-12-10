@@ -5,9 +5,11 @@ abstract class SomaDesignTokens {
     this.colors,
     this.fonts,
     this.spacings,
+    this.icons,
   );
 
   final SomaColor colors;
   final SomaFont fonts;
   final SomaSpacing spacings;
+  final SomaIcons icons;
 }

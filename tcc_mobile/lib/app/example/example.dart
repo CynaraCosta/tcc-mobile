@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 import 'package:tcc_mobile/gen/assets.gen.dart';
 import 'package:tcc_mobile/soma/soma.dart';
+import 'package:tcc_mobile/soma/src/components/soma_icon/soma_icon_widget.dart';
 
 List<PageRoute> exampleWidgetRoutes = [
   PageRoute(
@@ -43,6 +44,7 @@ List<PageRoute> exampleWidgetRoutes = [
               SvgPicture.asset(
                 Assets.images.logo,
               ),
+              const SomaIcon(iconName: 'message',),
             ],
           ),
         ),

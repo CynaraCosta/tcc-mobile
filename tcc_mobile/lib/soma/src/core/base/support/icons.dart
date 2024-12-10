@@ -1,6 +1,5 @@
 import 'package:tcc_mobile/gen/assets.gen.dart';
 import 'package:tcc_mobile/soma/soma.dart';
-import 'package:tcc_mobile/soma/src/core/base/support/icons_string.dart';
 
 class BaseSomaIcons implements SomaIcons {
   @override
@@ -9,7 +8,8 @@ class BaseSomaIcons implements SomaIcons {
   @override
   String get gallery => Assets.icons.gallery;
 
-  String getIconPath(SomaIcon? icon, String? iconName) {
+  @override
+  String getIconPath({SomaIconType? icon, String? iconName}) {
     if (icon != null) {
       switch (icon.value) {
         case SomaIconsStrings.message:
@@ -17,7 +17,7 @@ class BaseSomaIcons implements SomaIcons {
         case SomaIconsStrings.gallery:
           return gallery;
         default:
-          throw Exception('Icon not found');
+          return message;
       }
     } else {
       switch (iconName) {
@@ -26,7 +26,7 @@ class BaseSomaIcons implements SomaIcons {
         case SomaIconsStrings.gallery:
           return gallery;
         default:
-          throw Exception('Icon Name not found');
+          return message;
       }
     }
   }

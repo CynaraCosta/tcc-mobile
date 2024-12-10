@@ -1,10 +1,20 @@
 import 'package:tcc_mobile/soma/src/core/base/support/icons_string.dart';
 
-enum SomaIcon {
+enum SomaIconType {
   message(SomaIconsStrings.message),
   gallery(SomaIconsStrings.gallery);
 
-  const SomaIcon(this.value);
+  const SomaIconType(this.value);
 
   final String value;
+}
+
+enum SomaIconSize {
+  sm(16),
+  md(24),
+  lg(32);
+
+  const SomaIconSize(this.size);
+
+  final double size;
 }

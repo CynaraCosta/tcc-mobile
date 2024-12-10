@@ -9,4 +9,7 @@ class BaseSomaDesignTokens implements SomaDesignTokens {
 
   @override
   final SomaSpacing spacings = BaseSomaSpacing();
+  
+  @override
+  SomaIcons get icons => BaseSomaIcons();
 }

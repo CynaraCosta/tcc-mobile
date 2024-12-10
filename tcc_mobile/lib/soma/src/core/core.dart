@@ -9,6 +9,10 @@ export 'base/component_tokens.dart';
 export 'base/design/colors.dart';
 export 'base/design/fonts.dart';
 export 'base/design/spacings.dart';
+// Soma Base - Support
+export 'base/support/icons.dart';
+export 'base/support/icons_string.dart';
+export 'base/support/icon_enum.dart';
 // Soma Base - Theme
 export 'base/theme/soma_theme.dart';
 // Soma Tokens - Components
