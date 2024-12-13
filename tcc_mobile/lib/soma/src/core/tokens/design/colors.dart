@@ -26,10 +26,12 @@ class SomaColorBackgroundDefaultRange {
   SomaColorBackgroundDefaultRange({
     required this.primary,
     required this.secondary,
+    required this.ternary,
   });
 
   Color primary;
   Color secondary;
+  Color ternary;
 }
 
 abstract class SomaColorFont {

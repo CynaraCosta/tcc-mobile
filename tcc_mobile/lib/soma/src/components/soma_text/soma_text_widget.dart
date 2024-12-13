@@ -23,7 +23,6 @@ class SomaText extends StatelessWidget {
     final textColor = isInverse
         ? designTokens.colors.fontColor.light.primary
         : designTokens.colors.fontColor.dark.primary;
-
     return TextStyle(
       fontFamily: tokens?.fontFamily ?? designTokens.fonts.family.base,
       fontSize: tokens?.fontSize ?? designTokens.fonts.size.sm,

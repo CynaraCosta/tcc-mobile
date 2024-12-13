@@ -35,6 +35,9 @@ class BaseSomaColorBackgroundLight implements SomaColorBackgroundDefaultRange {
 
   @override
   Color secondary = ColorName.lightBackgroundSecondary;
+
+  @override
+  Color ternary = ColorName.lightBackgroundSecondary;
 }
 
 class BaseSomaColorBackgroundDark implements SomaColorBackgroundDefaultRange {
@@ -50,6 +53,9 @@ class BaseSomaColorBackgroundDark implements SomaColorBackgroundDefaultRange {
 
   @override
   Color secondary = ColorName.darkBackgroundSecondary;
+
+  @override
+  Color ternary = ColorName.darkBackgroundTernary;
 }
 
 class BaseSomaColorBrand implements SomaColorBrand {

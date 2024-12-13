@@ -24,6 +24,9 @@ class BaseSomaComponents implements SomaComponents {
   SomaTypographyTokens get typography => BaseSomaTypographyTokens(
         designTokens: designTokens,
       );
+
+  @override
+  CardTokens get card => BaseCardTokens(designTokens: designTokens);
 }
 
 class BaseSomaComponentsInverse extends BaseSomaComponents {
@@ -33,4 +36,7 @@ class BaseSomaComponentsInverse extends BaseSomaComponents {
   SomaTypographyTokens get typography => BaseSomaTypographyInverseTokens(
         designTokens: designTokens,
       );
+
+  @override
+  CardTokens get card => BaseCardTokensInverse(designTokens: designTokens);
 }

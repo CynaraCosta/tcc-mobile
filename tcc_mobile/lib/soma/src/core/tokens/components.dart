@@ -12,7 +12,9 @@ abstract class SomaComponentTokens {
 abstract class SomaComponents {
   SomaComponents({
     required this.typography,
+    required this.card,
   });
 
   final SomaTypographyTokens typography;
+  final CardTokens card;
 }

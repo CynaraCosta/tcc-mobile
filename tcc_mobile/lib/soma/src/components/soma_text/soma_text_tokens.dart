@@ -51,13 +51,19 @@ class BaseSomaTypographyInverseTokens implements SomaTypographyTokens {
       );
 
   @override
-  SomaTextTokens get title1 => BaseSomaTitle1Inverse(designTokens: designTokens);
+  SomaTextTokens get title1 => BaseSomaTitle1Inverse(
+        designTokens: designTokens,
+      );
 
   @override
-  SomaTextTokens get title2 => BaseSomaTitle2Inverse(designTokens: designTokens);
+  SomaTextTokens get title2 => BaseSomaTitle2Inverse(
+        designTokens: designTokens,
+      );
 
   @override
-  SomaTextTokens get title3 => BaseSomaTitle3Inverse(designTokens: designTokens);
+  SomaTextTokens get title3 => BaseSomaTitle3Inverse(
+        designTokens: designTokens,
+      );
 }
 
 abstract class SomaTextTokens implements TokenizableComponent {
@@ -151,7 +157,7 @@ class BaseSomaTitle3 implements SomaTextTokens {
   Color get textColor => designTokens.colors.fontColor.dark.primary;
 }
 
-class BaseSomaTitle3Inverse extends BaseSomaTitle2 {
+class BaseSomaTitle3Inverse extends BaseSomaTitle3 {
   BaseSomaTitle3Inverse({required super.designTokens});
 
   @override
@@ -179,7 +185,7 @@ class BaseSomaDescription implements SomaTextTokens {
   Color get textColor => designTokens.colors.fontColor.dark.primary;
 }
 
-class BaseSomaDescriptionInverse extends BaseSomaTitle2 {
+class BaseSomaDescriptionInverse extends BaseSomaDescription {
   BaseSomaDescriptionInverse({required super.designTokens});
 
   @override

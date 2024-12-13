@@ -22,6 +22,9 @@ class ColorName {
   /// Color: #2E2E2E
   static const Color darkBackgroundSecondary = Color(0xFF2E2E2E);
 
+  /// Color: #000000
+  static const Color darkBackgroundTernary = Color(0xFF000000);
+
   /// Color: #040404
   static const Color darkFontPrimary = Color(0xFF040404);
 

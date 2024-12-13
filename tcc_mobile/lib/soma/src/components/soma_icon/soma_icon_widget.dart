@@ -7,12 +7,14 @@ class SomaIcon extends StatelessWidget {
     this.iconName,
     this.type,
     this.size,
+    this.color,
     super.key,
   });
 
   final String? iconName;
   final SomaIconType? type;
   final SomaIconSize? size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,12 @@ class SomaIcon extends StatelessWidget {
       icon,
       width: size?.size ?? designTokens.spacings.inline.xs,
       height: size?.size ?? designTokens.spacings.inline.xs,
+      colorFilter: color != null
+          ? ColorFilter.mode(
+              color!,
+              BlendMode.srcIn,
+            )
+          : null,
     );
   }
 }
