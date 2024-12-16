@@ -11,6 +11,8 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/di/explorer_carousel_module.dart'
+    as _i552;
 import 'package:tcc_mobile/commons/debugging/features/network/data/repository/shared_preferences_repository.dart'
     as _i792;
 import 'package:tcc_mobile/commons/debugging/features/network/di/network_di_module.dart'
@@ -24,24 +26,21 @@ import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart'
 import 'package:tcc_mobile/commons/network/network_module.dart' as _i981;
 import 'package:tcc_mobile/commons/router/router.dart' as _i290;
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart' as _i757;
-import 'package:tcc_mobile/di/app_module.dart' as _i700;
-import 'package:tcc_mobile/soma/soma.dart' as _i566;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(
       this,
       environment,
       environmentFilter,
     );
-    final appModule = _$AppModule();
+    await _i552.ExplorerCarouselModule().init(gh);
     final networkDiModule = _$NetworkDiModule();
     final networkModule = _$NetworkModule();
-    gh.factory<_i566.SomaThemeData>(() => appModule.coreTheme);
     gh.factory<_i792.SharedPreferencesRepository>(
         () => networkDiModule.repository);
     gh.factory<_i599.NetworkInterceptor>(
@@ -50,8 +49,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => networkDiModule.providesNetworkRequestsCubit());
     gh.factory<_i1064.ApiDataSourceDelegate>(
         () => networkModule.providesApiDataSourceDelegate());
-    gh.singleton<_i290.AppRouterConfig>(
-        () => appModule.providesAppRouterConfig());
     gh.factory<String>(
       () => networkModule.baseUrl,
       instanceName: 'BaseUrl',
@@ -69,8 +66,6 @@ extension GetItInjectableX on _i174.GetIt {
     return this;
   }
 }
-
-class _$AppModule extends _i700.AppModule {}
 
 class _$NetworkDiModule extends _i769.NetworkDiModule {}
 

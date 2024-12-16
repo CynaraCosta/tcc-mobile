@@ -6,11 +6,12 @@ import 'package:tcc_mobile/root.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   runApp(
     TccMobile(
       router: GetIt.I.get<AppRouterConfig>(),
-      somaThemeData: GetIt.I.get<SomaThemeData>(),
+      somaThemeData: CoreSomaThemeData(),
     ),
   );
 }

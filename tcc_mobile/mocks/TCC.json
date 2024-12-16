@@ -38,12 +38,82 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "f6725014-6562-4b5f-8870-0f6fb39e56de",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/home",
+      "responses": [
+        {
+          "uuid": "5a39cf97-7c9c-43f7-8555-454056c60ea8",
+          "body": "{\n  \"widgets\": [\n    {\n      \"id\": \"explorer-carousel\",\n      \"state\": \"success\",\n      \"path\": \"\",\n      \"data\": {\n        \"title\": \"Explorar\",\n        \"cards\": [\n          {\n            \"title\": \"Chat AI\",\n            \"subtitle\": \"Start New Conversation\",\n            \"icon\": \"message\",\n            \"deeplink\": \"/conversation\"\n          },\n          {\n            \"title\": \"Documents\",\n            \"subtitle\": \"Start New Conversation\",\n            \"icon\": \"gallery\",\n            \"deeplink\": \"/conversation\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "063ef20e-18ec-4c56-894c-3a6e9d6a46e3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/explorer-carousel",
+      "responses": [
+        {
+          "uuid": "0093120d-8b4b-4e4b-ac07-a440dcf586be",
+          "body": "{\n  \"title\": \"Explorar\",\n  \"cards\": [\n    {\n      \"title\": \"Chat AI\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/conversation\"\n    },\n    {\n      \"title\": \"Documents\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/conversation\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "8987621c-7e31-4954-a67f-f941ac9bde13"
+    },
+    {
+      "type": "route",
+      "uuid": "f6725014-6562-4b5f-8870-0f6fb39e56de"
+    },
+    {
+      "type": "route",
+      "uuid": "063ef20e-18ec-4c56-894c-3a6e9d6a46e3"
     }
   ],
   "proxyMode": false,
