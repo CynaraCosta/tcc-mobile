@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart' hide PageRoute, WidgetState;
-import 'package:get_it/get_it.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/domain/entity/explorer_carousel_entity.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/explorer_carousel_widget.dart';
-import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
@@ -12,7 +8,7 @@ List<PageRoute> exampleWidgetRoutes = [
     builder: (context, state) {
       return Scaffold(
         backgroundColor: SomaContext.primaryBackgroundColorOf(context),
-        body: Column(
+        body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Container(
@@ -39,22 +35,6 @@ List<PageRoute> exampleWidgetRoutes = [
             //     ],
             //   ),
             // ),
-            CardWidget(
-              icon: 'message',
-              title: 'Chat AI',
-              subtitle: 'Start New Conversation',
-              onTap: (deeplink) => {},
-            ),
-            ExplorerCarouselWidget(
-              model: const WidgetModel(
-                id: 'explorer-carousel',
-                path: '/v1/explorer-carousel',
-                state: WidgetState.loading,
-                data: {},
-              ),
-              provider:
-                  GetIt.I.get<WidgetContentCommand<ExplorerCarouselEntity>>(),
-            ),
           ],
         ),
       );
