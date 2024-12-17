@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_mobile/soma/soma.dart';
 
 class ExplorerCarouselErrorWidget extends StatelessWidget {
   const ExplorerCarouselErrorWidget({
@@ -10,10 +11,24 @@ class ExplorerCarouselErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      width: 100,
-      height: 100,
+    final tokens = SomaTheme.getDesignTokensOf(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SomaIcon(
+          type: SomaIconType.rotateRight,
+          color: tokens.colors.brand.brand,
+          size: SomaIconSize.md,
+        ),
+        SizedBox(
+          height: tokens.spacings.inline.xxs,
+        ),
+        const SomaText(
+          text: 'Tente novamente depois',
+          type: SomaTypographyType.title3,
+        ),
+      ],
     );
   }
 }

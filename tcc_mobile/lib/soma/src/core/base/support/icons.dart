@@ -9,6 +9,9 @@ class BaseSomaIcons implements SomaIcons {
   String get gallery => Assets.icons.gallery;
 
   @override
+  String get rotateRight => Assets.icons.rotateRight;
+
+  @override
   String getIconPath({SomaIconType? icon, String? iconName}) {
     if (icon != null) {
       switch (icon.value) {
@@ -16,6 +19,8 @@ class BaseSomaIcons implements SomaIcons {
           return message;
         case SomaIconsStrings.gallery:
           return gallery;
+        case SomaIconsStrings.rotateRight:
+          return rotateRight;
         default:
           return message;
       }
@@ -25,6 +30,8 @@ class BaseSomaIcons implements SomaIcons {
           return message;
         case SomaIconsStrings.gallery:
           return gallery;
+        case SomaIconsStrings.rotateRight:
+          return rotateRight;
         default:
           return message;
       }

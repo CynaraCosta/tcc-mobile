@@ -48,8 +48,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
+  /// File path: assets/icons/rotate-right.svg
+  String get rotateRight => 'assets/icons/rotate-right.svg';
+
   /// List of all assets
-  List<String> get values => [gallery, message];
+  List<String> get values => [gallery, message, rotateRight];
 }
 
 class $AssetsImagesGen {
