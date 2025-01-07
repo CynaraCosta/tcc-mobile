@@ -12,6 +12,9 @@ class BaseSomaIcons implements SomaIcons {
   String get rotateRight => Assets.icons.rotateRight;
 
   @override
+  String get arrowRight => Assets.icons.arrowRight;
+
+  @override
   String getIconPath({SomaIconType? icon, String? iconName}) {
     if (icon != null) {
       switch (icon.value) {

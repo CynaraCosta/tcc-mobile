@@ -3,7 +3,8 @@ import 'package:tcc_mobile/soma/src/core/base/support/icons_string.dart';
 enum SomaIconType {
   message(SomaIconsStrings.message),
   gallery(SomaIconsStrings.gallery),
-  rotateRight(SomaIconsStrings.rotateRight);
+  rotateRight(SomaIconsStrings.rotateRight),
+  arrowRight(SomaIconsStrings.arrowRight);
 
   const SomaIconType(this.value);
 

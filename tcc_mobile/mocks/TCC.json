@@ -100,6 +100,37 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "797b61b4-dd94-419d-801b-e45097e23b97",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/history-cards",
+      "responses": [
+        {
+          "uuid": "5c71c543-ce93-4a6d-8d11-b672d6d5f6c1",
+          "body": "{\n  \"title\": \"Histórico\",\n  \"subtitle\": \"Ver mais\",\n  \"cards\": [\n    {\n      \"title\": \"Último exame do paciente\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/conversation?id=45\"\n    },\n    {\n      \"title\": \"Análise de exame\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/conversation?id=46\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -114,6 +145,10 @@
     {
       "type": "route",
       "uuid": "063ef20e-18ec-4c56-894c-3a6e9d6a46e3"
+    },
+    {
+      "type": "route",
+      "uuid": "797b61b4-dd94-419d-801b-e45097e23b97"
     }
   ],
   "proxyMode": false,

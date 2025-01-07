@@ -32,6 +32,10 @@ class BaseSomaComponents implements SomaComponents {
   SomaSkeletonTokens get skeleton => BaseSomaSkeletonTokens(
         designTokens: designTokens,
       );
+
+  @override
+  HistoryCardTokens get historyCard =>
+      BaseHistoryCardTokens(designTokens: designTokens);
 }
 
 class BaseSomaComponentsInverse extends BaseSomaComponents {
@@ -49,4 +53,8 @@ class BaseSomaComponentsInverse extends BaseSomaComponents {
   SomaSkeletonTokens get skeleton => BaseSomaSkeletonTokensInverse(
         designTokens: designTokens,
       );
+
+  @override
+  HistoryCardTokens get historyCard =>
+      BaseHistoryCardTokensInverse(designTokens: designTokens);
 }
