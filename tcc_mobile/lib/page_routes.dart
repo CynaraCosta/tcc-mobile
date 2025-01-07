@@ -16,9 +16,10 @@ final homeRoute = PageRoute(
     return Scaffold(
       backgroundColor: SomaContext.primaryBackgroundColorOf(context),
       body: HomePage(
-          carouselProvider:
-              GetIt.I.get<WidgetContentCommand<ExplorerCarouselEntity>>(),
-        ),
+        carouselProvider:
+            GetIt.I.get<WidgetContentCommand<ExplorerCarouselEntity>>(),
+        navigator: GetIt.I.get<AppNavigator>(),
+      ),
     );
   },
 );

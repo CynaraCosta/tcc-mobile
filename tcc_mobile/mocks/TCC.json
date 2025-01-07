@@ -79,7 +79,7 @@
       "responses": [
         {
           "uuid": "0093120d-8b4b-4e4b-ac07-a440dcf586be",
-          "body": "{\n  \"title\": \"Explorar\",\n  \"cards\": [\n    {\n      \"title\": \"Chat AI\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/conversation\"\n    },\n    {\n      \"title\": \"Documents\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/conversation\"\n    }\n  ]\n}",
+          "body": "{\n  \"title\": \"Explorar\",\n  \"cards\": [\n    {\n      \"title\": \"Chat AI\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/chatia\"\n    },\n    {\n      \"title\": \"Documents\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/documents\"\n    }\n  ]\n}",
           "latency": 1500,
           "statusCode": 200,
           "label": "",

@@ -2,15 +2,18 @@ import 'package:flutter/material.dart' hide WidgetState;
 import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/domain/entity/explorer_carousel_entity.dart';
 import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/explorer_carousel_widget.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
+import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
     required this.carouselProvider,
+    required this.navigator,
     super.key,
   });
 
   final WidgetContentCommand<ExplorerCarouselEntity> carouselProvider;
+  final AppNavigator navigator;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,7 @@ class HomePage extends StatelessWidget {
                   data: {},
                 ),
                 provider: carouselProvider,
+                navigator: navigator,
               ),
             ),
           ],

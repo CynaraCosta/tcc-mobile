@@ -13,7 +13,7 @@ class CardWidget extends StatelessWidget {
   final String icon;
   final String title;
   final String? subtitle;
-  final Function(String deeplink) onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class CardWidget extends StatelessWidget {
         color: style.bgColor,
       ),
       child: InkWell(
-        onTap: () => onTap,
+        onTap: onTap,
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         child: Padding(
           padding: EdgeInsets.symmetric(

@@ -1,15 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:tcc_mobile/commons/router/router.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 import '../domain/entity/explorer_carousel_entity.dart';
 
 class ExplorerCarouselSuccessWidget extends StatelessWidget {
   const ExplorerCarouselSuccessWidget({
     required this.entity,
+    required this.navigator,
     super.key,
   });
 
   final ExplorerCarouselEntity entity;
+  final AppNavigator navigator;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,16 @@ class ExplorerCarouselSuccessWidget extends StatelessWidget {
               padding: EdgeInsets.only(right: tokens.spacings.inline.xs),
               child: CardWidget(
                 icon: entity.cards[itemIndex].icon,
-                onTap: (String deeplink) {},
+                onTap: () {
+                  final deeplink = entity.cards[itemIndex].deeplink;
+                  if (deeplink != null) {
+                    navigator.pushToUrl(
+                      Uri.parse(
+                        deeplink,
+                      ),
+                    );
+                  }
+                },
                 title: entity.cards[itemIndex].title,
                 subtitle: subtitle,
               ),
