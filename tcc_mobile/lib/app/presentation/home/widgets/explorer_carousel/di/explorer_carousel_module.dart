@@ -6,22 +6,6 @@ import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/explo
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import '../domain/mapper/explorer_carousel_mapper.dart';
 
-// @module
-// abstract class ExplorerCarouselModule extends DynamicWidgetBuilderBaseModule<
-//     ExplorerCarouselEntity, ExplorerCarouselWidget> {
-//   @override
-//   FutureOr<void> init(GetItHelper gh) {
-//     super.init(gh);
-
-//     gh.factory<WidgetContentMapper<ExplorerCarouselEntity>>(
-//       () => providesMapper(),
-//     );
-//   }
-
-//   WidgetContentMapper<ExplorerCarouselEntity> providesMapper() =>
-//       ExplorerCarouselMapper();
-// }
-
 class ExplorerCarouselModule extends DynamicWidgetBuilderBaseModule<
     ExplorerCarouselEntity, ExplorerCarouselWidget> {
   @override
@@ -36,30 +20,3 @@ class ExplorerCarouselModule extends DynamicWidgetBuilderBaseModule<
   WidgetContentMapper<ExplorerCarouselEntity> providesMapper() =>
       ExplorerCarouselMapper();
 }
-
-// import 'explorer_carousel_module.config.dart';
-
-// @InjectableInit(
-//   initializerName: 'initExplorerCarouselGetIt',
-//   externalPackageModulesBefore: [
-//     ExternalModule(ExplorerCarouselModule),
-//   ],
-// )
-
-// Future<void> configureExplorerCarouselModule(
-//   GetIt getIt,
-// ) async {
-//   getIt.$initExplorerCarouselGetIt();
-// }
-
-// // @module
-// class ExplorerCarouselModule extends DynamicWidgetBuilderBaseModule<
-//     ExplorerCarouselEntity, ExplorerCarouselWidget> {
-//   @override
-//   FutureOr<void> init(GetItHelper gh) {
-//     gh.factory<WidgetContentMapper<ExplorerCarouselEntity>>(
-//       () => ExplorerCarouselMapper(),
-//     );
-//     return super.init(gh);
-//   }
-// }

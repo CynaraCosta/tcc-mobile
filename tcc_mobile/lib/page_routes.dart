@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:tcc_mobile/app/example/example.dart';
 import 'package:tcc_mobile/app/presentation/home/pages/home_page.dart';
 import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/domain/entity/explorer_carousel_entity.dart';
+import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/domain/entity/history_cards_entity.dart';
 import 'package:tcc_mobile/commons/debugging/routes/debugging_routes.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
@@ -18,6 +19,8 @@ final homeRoute = PageRoute(
       body: HomePage(
         carouselProvider:
             GetIt.I.get<WidgetContentCommand<ExplorerCarouselEntity>>(),
+        historyProvider:
+            GetIt.I.get<WidgetContentCommand<HistoryCardsEntity>>(),
         navigator: GetIt.I.get<AppNavigator>(),
       ),
     );

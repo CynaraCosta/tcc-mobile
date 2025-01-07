@@ -75,6 +75,7 @@ class CardWidget extends StatelessWidget {
                     SomaText(
                       text: subtitle!,
                       type: SomaTypographyType.description,
+                      align: TextAlign.start,
                     ),
                   },
                 ],

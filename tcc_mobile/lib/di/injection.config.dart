@@ -13,6 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/di/explorer_carousel_module.dart'
     as _i552;
+import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/di/history_cards_module.dart'
+    as _i175;
 import 'package:tcc_mobile/commons/debugging/features/network/data/repository/shared_preferences_repository.dart'
     as _i792;
 import 'package:tcc_mobile/commons/debugging/features/network/di/network_di_module.dart'
@@ -39,6 +41,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     await _i552.ExplorerCarouselModule().init(gh);
+    await _i175.HistoryCardsModule().init(gh);
     final networkDiModule = _$NetworkDiModule();
     final networkModule = _$NetworkModule();
     gh.factory<_i792.SharedPreferencesRepository>(

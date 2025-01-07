@@ -6,12 +6,14 @@ class SomaText extends StatelessWidget {
     required this.text,
     this.type,
     this.customTextStyle,
+    this.align,
     super.key,
   });
 
   final String text;
   final SomaTypographyType? type;
   final TextStyle? customTextStyle;
+  final TextAlign? align;
 
   TextStyle getStyle(
     BuildContext context,
@@ -49,6 +51,7 @@ class SomaText extends StatelessWidget {
     return Text(
       text,
       style: effectieStyle,
+      textAlign: align ?? TextAlign.center,
     );
   }
 }

@@ -10,7 +10,11 @@ class HistoryCardsModule extends DynamicWidgetBuilderBaseModule<
   @override
   FutureOr<void> init(GetItHelper gh) {
     gh.factory<WidgetContentMapper<HistoryCardsEntity>>(
-        () => HistoryCardsMapper());
+      () => providesMapper(),
+    );
     return super.init(gh);
   }
+
+  WidgetContentMapper<HistoryCardsEntity> providesMapper() =>
+      HistoryCardsMapper();
 }
