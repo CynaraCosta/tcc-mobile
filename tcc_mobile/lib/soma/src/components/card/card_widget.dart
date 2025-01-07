@@ -26,8 +26,6 @@ class CardWidget extends StatelessWidget {
         ),
         color: style.bgColor,
       ),
-      width: MediaQuery.sizeOf(context).width * style.widthPercent,
-      height: MediaQuery.sizeOf(context).height * style.heightPercent,
       child: InkWell(
         onTap: () => onTap,
         overlayColor: const WidgetStatePropertyAll(Colors.transparent),

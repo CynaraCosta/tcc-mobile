@@ -13,8 +13,10 @@ abstract class SomaComponents {
   SomaComponents({
     required this.typography,
     required this.card,
+    required this.skeleton,
   });
 
   final SomaTypographyTokens typography;
   final CardTokens card;
+  final SomaSkeletonTokens skeleton;
 }

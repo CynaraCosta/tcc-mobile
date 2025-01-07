@@ -27,6 +27,11 @@ class BaseSomaComponents implements SomaComponents {
 
   @override
   CardTokens get card => BaseCardTokens(designTokens: designTokens);
+
+  @override
+  SomaSkeletonTokens get skeleton => BaseSomaSkeletonTokens(
+        designTokens: designTokens,
+      );
 }
 
 class BaseSomaComponentsInverse extends BaseSomaComponents {
@@ -39,4 +44,9 @@ class BaseSomaComponentsInverse extends BaseSomaComponents {
 
   @override
   CardTokens get card => BaseCardTokensInverse(designTokens: designTokens);
+
+  @override
+  SomaSkeletonTokens get skeleton => BaseSomaSkeletonTokensInverse(
+        designTokens: designTokens,
+      );
 }

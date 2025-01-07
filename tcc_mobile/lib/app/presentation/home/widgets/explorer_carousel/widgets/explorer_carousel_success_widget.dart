@@ -1,4 +1,6 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:tcc_mobile/soma/soma.dart';
 import '../domain/entity/explorer_carousel_entity.dart';
 
 class ExplorerCarouselSuccessWidget extends StatelessWidget {
@@ -11,10 +13,41 @@ class ExplorerCarouselSuccessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
-      width: 100,
-      height: 100,
+    final tokens = SomaTheme.getDesignTokensOf(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SomaText(
+          text: entity.title,
+          type: SomaTypographyType.title1,
+        ),
+        SizedBox(
+          height: tokens.spacings.inline.xs,
+        ),
+        CarouselSlider.builder(
+          itemCount: entity.cards.length,
+          itemBuilder:
+              (BuildContext context, int itemIndex, int pageViewIndex) {
+            final subtitle = entity.cards[itemIndex].subtitle;
+            return Padding(
+              padding: EdgeInsets.only(right: tokens.spacings.inline.xs),
+              child: CardWidget(
+                icon: entity.cards[itemIndex].icon,
+                onTap: (String deeplink) {},
+                title: entity.cards[itemIndex].title,
+                subtitle: subtitle,
+              ),
+            );
+          },
+          options: CarouselOptions(
+            enableInfiniteScroll: false,
+            viewportFraction: 0.45,
+            padEnds: false,
+            initialPage: 0,
+            height: MediaQuery.sizeOf(context).height * 0.189,
+          ),
+        ),
+      ],
     );
   }
 }
