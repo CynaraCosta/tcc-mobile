@@ -112,7 +112,7 @@
           "uuid": "5c71c543-ce93-4a6d-8d11-b672d6d5f6c1",
           "body": "{\n  \"title\": \"Histórico\",\n  \"subtitle\": \"Ver mais\",\n  \"cards\": [\n    {\n      \"title\": \"Último exame do paciente\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/conversation?id=45\"\n    },\n    {\n      \"title\": \"Análise de exame\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/conversation?id=46\"\n    }\n  ]\n}",
           "latency": 1500,
-          "statusCode": 400,
+          "statusCode": 200,
           "label": "",
           "headers": [],
           "bodyType": "INLINE",

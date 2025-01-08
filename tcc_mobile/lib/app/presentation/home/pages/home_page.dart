@@ -29,10 +29,11 @@ class HomePage extends StatelessWidget {
           vertical: tokens.spacings.inline.md,
           horizontal: tokens.spacings.inline.xs,
         ),
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: ExplorerCarouselWidget(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ExplorerCarouselWidget(
                 model: const WidgetModel(
                   id: 'explorer-carousel',
                   path: '/v1/explorer-carousel',
@@ -42,14 +43,10 @@ class HomePage extends StatelessWidget {
                 provider: carouselProvider,
                 navigator: navigator,
               ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
+              SizedBox(
                 height: tokens.spacings.inline.md,
               ),
-            ),
-            SliverToBoxAdapter(
-              child: HistoryCardsWidget(
+              HistoryCardsWidget(
                 model: const WidgetModel(
                   id: 'history-cards',
                   path: '/v1/history-cards',
@@ -59,8 +56,8 @@ class HomePage extends StatelessWidget {
                 provider: historyProvider,
                 navigator: navigator,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

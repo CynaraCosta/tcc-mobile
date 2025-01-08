@@ -27,8 +27,10 @@ class HistoryCardsWidget extends StatelessWidget {
       modelBuilder: (provider) => provider.execute(
         WidgetGetContentEvent(content: model),
       ),
-      successBuilder: (buildContenxt, entity) =>
-          HistoryCardsSuccessWidget(entity: entity),
+      successBuilder: (buildContenxt, entity) => HistoryCardsSuccessWidget(
+        entity: entity,
+        navigator: navigator,
+      ),
       errorBuilder: (buildContenxt, error, stackTrace) =>
           HistoryCardsErrorWidget(
         onTapError: onRetryAction.call,
