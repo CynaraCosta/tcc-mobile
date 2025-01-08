@@ -6,6 +6,7 @@ import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/history_c
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
+import 'package:tcc_mobile/soma/src/components/logo/logo_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const LogoImageWidget(),
               ExplorerCarouselWidget(
                 model: const WidgetModel(
                   id: 'explorer-carousel',

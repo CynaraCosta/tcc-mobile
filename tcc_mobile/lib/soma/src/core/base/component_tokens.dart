@@ -36,6 +36,9 @@ class BaseSomaComponents implements SomaComponents {
   @override
   HistoryCardTokens get historyCard =>
       BaseHistoryCardTokens(designTokens: designTokens);
+
+  @override
+  LogoTokens get logo => BaseLogoTokens(designTokens: designTokens);
 }
 
 class BaseSomaComponentsInverse extends BaseSomaComponents {
@@ -57,4 +60,7 @@ class BaseSomaComponentsInverse extends BaseSomaComponents {
   @override
   HistoryCardTokens get historyCard =>
       BaseHistoryCardTokensInverse(designTokens: designTokens);
+
+  @override
+  LogoTokens get logo => BaseLogoTokensInverse(designTokens: designTokens);
 }
