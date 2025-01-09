@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide WidgetState;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tcc_mobile/app/presentation/home/presentation/bloc/home_cubit.dart';
 import 'package:tcc_mobile/app/presentation/home/presentation/bloc/home_state.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/home_error_widget.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
@@ -68,13 +69,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               case const (HomeErrorState):
-                return Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.red,
+                return Center(
+                  child: HomeErrorWidget(
+                    onTapError: widget.homeCubit.getHome,
+                  ),
                 );
               default:
-                return const SizedBox.shrink();
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: tokens.colors.brand.brand,
+                  ),
+                );
             }
           },
         ),
