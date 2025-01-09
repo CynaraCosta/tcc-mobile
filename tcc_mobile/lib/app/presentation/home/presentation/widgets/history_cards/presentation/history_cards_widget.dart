@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
-import 'domain/entity/history_cards_entity.dart';
+import '../domain/entity/history_cards_entity.dart';
 import 'widgets/history_cards_error_widget.dart';
 import 'widgets/history_cards_loading_widget.dart';
 import 'widgets/history_cards_success_widget.dart';

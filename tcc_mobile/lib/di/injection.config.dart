@@ -28,6 +28,10 @@ import 'package:tcc_mobile/commons/debugging/features/network/domain/network_int
     as _i599;
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart'
     as _i113;
+import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart'
+    as _i114;
+import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/components_page_factory.dart'
+    as _i834;
 import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart'
     as _i1064;
 import 'package:tcc_mobile/commons/network/network_module.dart' as _i981;
@@ -76,6 +80,14 @@ extension GetItInjectableX on _i174.GetIt {
         homeModule.providesHomeRepository(gh<_i1064.ApiDataSourceDelegate>()));
     gh.factory<_i213.HomeCubit>(
         () => homeModule.providesHomeCubit(gh<_i725.HomeRepository>()));
+    gh.factory<_i834.ComponentsPageFactory>(
+      () => homeModule.providesHome(
+        gh<_i290.AppNavigator>(),
+        gh<_i213.HomeCubit>(),
+        gh<_i114.ComponentContentAdapterBuilder>(),
+      ),
+      instanceName: 'HomePageFactory',
+    );
     return this;
   }
 }

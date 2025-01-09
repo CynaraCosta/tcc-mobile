@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/resources/history_cards_strings.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
-import '../domain/entity/history_cards_entity.dart';
+import '../../domain/entity/history_cards_entity.dart';
 
 class HistoryCardsSuccessWidget extends StatelessWidget {
   const HistoryCardsSuccessWidget({

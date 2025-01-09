@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
-import 'domain/entity/explorer_carousel_entity.dart';
+import '../domain/entity/explorer_carousel_entity.dart';
 import 'widgets/explorer_carousel_error_widget.dart';
 import 'widgets/explorer_carousel_loading_widget.dart';
 import 'widgets/explorer_carousel_success_widget.dart';
