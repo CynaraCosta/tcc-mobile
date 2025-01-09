@@ -48,7 +48,7 @@
       "responses": [
         {
           "uuid": "5a39cf97-7c9c-43f7-8555-454056c60ea8",
-          "body": "{\n  \"widgets\": [\n    {\n      \"id\": \"explorerCarousel\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/explorer-carousel\",\n      \"data\": {}\n    },\n    {\n      \"id\": \"historyCards\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/history-cards\",\n      \"data\": {}\n    }\n  ]\n}",
+          "body": "{\n  \"widgets\": [\n    {\n      \"id\": \"explorerCarousel\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/explorer-carousel\",\n      \"data\": {},\n      \"style\": {\n        \"bounds\": {\n          \"top\": \"soma_spacing_inline_md\",\n          \"left\": \"soma_spacing_inline_xs\",\n          \"right\": \"soma_spacing_inline_xs\"\n        }\n      }\n    },\n    {\n      \"id\": \"historyCards\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/history-cards\",\n      \"data\": {},\n      \"style\": {\n        \"bounds\": {\n          \"top\": \"soma_spacing_inline_md\",\n          \"left\": \"soma_spacing_inline_xs\",\n          \"right\": \"soma_spacing_inline_xs\"\n        }\n      }\n    }\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",

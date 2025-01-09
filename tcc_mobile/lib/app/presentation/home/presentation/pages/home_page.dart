@@ -40,54 +40,43 @@ class _HomePageState extends State<HomePage> {
     final tokens = SomaTheme.getDesignTokensOf(context);
 
     return SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: tokens.spacings.inline.md,
-          horizontal: tokens.spacings.inline.xs,
-        ),
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (_) => widget.homeCubit),
-          ],
-          child: BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              switch (state.runtimeType) {
-                case const (HomeSuccessState):
-                  final data = (state as HomeSuccessState).entity;
-                  final widgets = List.generate(data.widgets.length, (index) {
-                    final model = data.widgets[index];
-                    return widget.adapter.bindWidget(model);
-                  });
-                  return SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const LogoImageWidget(),
-                        ...widgets,
-                        // widgets,
-                        // ExplorerCarouselWidget(
-                        //   model: const WidgetModel(
-                        //     id: 'explorer-carousel',
-                        //     path: '/v1/explorer-carousel',
-                        //     state: WidgetState.loading,
-                        //     data: {},
-                        //   ),
-                        //   provider: carouselProvider,
-                        //   navigator: navigator,
-                        // ),
-                        SizedBox(
-                          height: tokens.spacings.inline.md,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => widget.homeCubit),
+        ],
+        child: BlocBuilder<HomeCubit, HomeState>(
+          builder: (context, state) {
+            switch (state.runtimeType) {
+              case const (HomeSuccessState):
+                final data = (state as HomeSuccessState).entity;
+                final widgets = List.generate(data.widgets.length, (index) {
+                  final model = data.widgets[index];
+                  return widget.adapter.bindWidget(model);
+                });
+                return SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: tokens.spacings.inline.xs,
                         ),
-                      ],
-                    ),
-                  );
-                case const (HomeErrorState):
-                  return const SizedBox.shrink();
-                default:
-                  return const SizedBox.shrink();
-              }
-            },
-          ),
+                        child: const LogoImageWidget(),
+                      ),
+                      ...widgets,
+                    ],
+                  ),
+                );
+              case const (HomeErrorState):
+                return Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                );
+              default:
+                return const SizedBox.shrink();
+            }
+          },
         ),
       ),
     );

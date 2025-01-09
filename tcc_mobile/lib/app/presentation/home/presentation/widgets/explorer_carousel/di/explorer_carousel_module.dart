@@ -6,6 +6,7 @@ import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_c
 import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/presentation/explorer_carousel_widget.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/builder/component_builder.dart';
+import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/helpers/widget_insets_helper.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import '../domain/mapper/explorer_carousel_mapper.dart';
 
@@ -21,9 +22,15 @@ class ExplorerCarouselModule extends DynamicWidgetBuilderBaseModule<
 
     gh.factory<ComponentBuilder<ExplorerCarouselWidget>>(() {
       final builder = ExplorerCarouselBuilder(
-        provider: gh<WidgetContentCommand<ExplorerCarouselEntity>>(),
+      
       );
-      builder.addNavigator(gh<AppNavigator>());
+      builder
+      ..addProvider(gh<WidgetContentCommand<ExplorerCarouselEntity>>())
+        ..addNavigator(gh<AppNavigator>())
+        ..addWidgetInsetsHelper(
+          gh<WidgetInsetsHelper>(),
+        );
+      
       return builder;
     });
   }

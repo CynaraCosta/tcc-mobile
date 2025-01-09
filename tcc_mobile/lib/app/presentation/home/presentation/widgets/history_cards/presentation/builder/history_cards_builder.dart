@@ -3,18 +3,26 @@ import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_ca
 import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/presentation/history_cards_widget.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/builder/component_builder.dart';
+import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/helpers/widget_insets_helper.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 
 class HistoryCardsBuilder implements ComponentBuilder<HistoryCardsWidget> {
-  HistoryCardsBuilder({
-    required this.provider,
-  });
+  HistoryCardsBuilder();
 
-  final WidgetContentCommand<HistoryCardsEntity> provider;
+  late WidgetContentCommand<HistoryCardsEntity> provider;
   late AppNavigator navigator;
+  late WidgetInsetsHelper widgetInsetsHelper;
+
+  void addProvider(WidgetContentCommand<HistoryCardsEntity> provider) {
+    this.provider = provider;
+  }
 
   void addNavigator(AppNavigator navigator) {
     this.navigator = navigator;
+  }
+
+  void addWidgetInsetsHelper(WidgetInsetsHelper widgetInsetsHelper) {
+    this.widgetInsetsHelper = widgetInsetsHelper;
   }
 
   @override
@@ -23,6 +31,7 @@ class HistoryCardsBuilder implements ComponentBuilder<HistoryCardsWidget> {
       model: model,
       provider: provider,
       navigator: navigator,
+      widgetInsetsHelper: widgetInsetsHelper,
     );
   }
 }
