@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart' hide WidgetState;
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/domain/entity/explorer_carousel_entity.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/explorer_carousel_widget.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/domain/entity/history_cards_entity.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/history_cards_widget.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/domain/entity/explorer_carousel_entity.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/explorer_carousel_widget.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/domain/entity/history_cards_entity.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/history_cards_widget.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
-import 'package:tcc_mobile/soma/src/components/logo/logo_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({

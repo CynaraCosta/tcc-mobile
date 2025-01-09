@@ -11,9 +11,9 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/di/explorer_carousel_module.dart'
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/di/explorer_carousel_module.dart'
     as _i552;
-import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/di/history_cards_module.dart'
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/di/history_cards_module.dart'
     as _i175;
 import 'package:tcc_mobile/commons/debugging/features/network/data/repository/shared_preferences_repository.dart'
     as _i792;

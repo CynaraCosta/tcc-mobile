@@ -1,9 +1,9 @@
-import 'package:flutter/widgets.dart';
-import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/resources/history_cards_strings.dart';
+import 'package:flutter/material.dart';
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/resources/explorer_carousel_strings.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 
-class HistoryCardsErrorWidget extends StatelessWidget {
-  const HistoryCardsErrorWidget({
+class ExplorerCarouselErrorWidget extends StatelessWidget {
+  const ExplorerCarouselErrorWidget({
     this.onTapError,
     super.key,
   });
@@ -28,14 +28,14 @@ class HistoryCardsErrorWidget extends StatelessWidget {
             height: tokens.spacings.inline.xxs,
           ),
           const SomaText(
-            text: HistoryCardsStrings.errorTitle,
+            text: ExplorerCarouselStrings.errorTitle,
             type: SomaTypographyType.title3,
           ),
           SizedBox(
             height: tokens.spacings.inline.xxxs,
           ),
           const SomaText(
-            text: HistoryCardsStrings.errorDescription,
+            text: ExplorerCarouselStrings.errorDescription,
             type: SomaTypographyType.description,
           ),
         ],
