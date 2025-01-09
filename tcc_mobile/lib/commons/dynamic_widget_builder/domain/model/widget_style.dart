@@ -7,7 +7,7 @@ final class WidgetStyle extends Equatable {
 
   factory WidgetStyle.fromMap(Map<String, dynamic> map) {
     return WidgetStyle(
-      bounds: map['bounds'],
+      bounds: WidgetBounds.fromMap(map['bounds']),
     );
   }
 

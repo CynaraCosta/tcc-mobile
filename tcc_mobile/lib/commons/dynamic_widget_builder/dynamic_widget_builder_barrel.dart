@@ -4,6 +4,8 @@ export 'data/content_data_source.dart';
 export 'data/content_repository_default.dart';
 export 'data/data_source/remote_content_data_source.dart';
 export 'di/dynamic_widget_builder_base_module.dart';
+export 'domain/adapter/component_content_adapter.dart';
+export 'domain/adapter/component_content_adapter_builder.dart';
 export 'domain/boundary/command/widget_content_command.dart';
 export 'domain/boundary/mapper/widget_content_mapper.dart';
 export 'domain/boundary/mapper/widget_content_request_mapper.dart';

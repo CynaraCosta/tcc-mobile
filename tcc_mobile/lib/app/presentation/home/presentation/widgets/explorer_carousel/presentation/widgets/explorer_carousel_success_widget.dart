@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tcc_mobile/commons/router/router.dart';
 import 'package:tcc_mobile/soma/soma.dart';
-import '../domain/entity/explorer_carousel_entity.dart';
+import '../../domain/entity/explorer_carousel_entity.dart';
 
 class ExplorerCarouselSuccessWidget extends StatelessWidget {
   const ExplorerCarouselSuccessWidget({

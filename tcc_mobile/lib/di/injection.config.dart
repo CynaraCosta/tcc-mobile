@@ -11,10 +11,15 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:tcc_mobile/app/presentation/home/widgets/explorer_carousel/di/explorer_carousel_module.dart'
-    as _i552;
-import 'package:tcc_mobile/app/presentation/home/widgets/history_cards/di/history_cards_module.dart'
-    as _i175;
+import 'package:tcc_mobile/app/presentation/home/di/home_module.dart' as _i762;
+import 'package:tcc_mobile/app/presentation/home/domain/repository/home_repository.dart'
+    as _i725;
+import 'package:tcc_mobile/app/presentation/home/presentation/bloc/home_cubit.dart'
+    as _i213;
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/explorer_carousel/di/explorer_carousel_module.dart'
+    as _i278;
+import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/di/history_cards_module.dart'
+    as _i115;
 import 'package:tcc_mobile/commons/debugging/features/network/data/repository/shared_preferences_repository.dart'
     as _i792;
 import 'package:tcc_mobile/commons/debugging/features/network/di/network_di_module.dart'
@@ -23,6 +28,10 @@ import 'package:tcc_mobile/commons/debugging/features/network/domain/network_int
     as _i599;
 import 'package:tcc_mobile/commons/debugging/features/network/presentation/bloc/network_requests_cubit.dart'
     as _i113;
+import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart'
+    as _i114;
+import 'package:tcc_mobile/commons/dynamic_widget_builder/presentation/components_page_factory.dart'
+    as _i834;
 import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart'
     as _i1064;
 import 'package:tcc_mobile/commons/network/network_module.dart' as _i981;
@@ -40,10 +49,11 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    await _i552.ExplorerCarouselModule().init(gh);
-    await _i175.HistoryCardsModule().init(gh);
+    await _i278.ExplorerCarouselModule().init(gh);
+    await _i115.HistoryCardsModule().init(gh);
     final networkDiModule = _$NetworkDiModule();
     final networkModule = _$NetworkModule();
+    final homeModule = _$HomeModule();
     gh.factory<_i792.SharedPreferencesRepository>(
         () => networkDiModule.repository);
     gh.factory<_i599.NetworkInterceptor>(
@@ -66,6 +76,18 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.lazySingleton<_i757.AppNavigator>(
         () => _i757.AppNavigatorImpl(gh<_i290.AppRouterConfig>()));
+    gh.factory<_i725.HomeRepository>(() =>
+        homeModule.providesHomeRepository(gh<_i1064.ApiDataSourceDelegate>()));
+    gh.factory<_i213.HomeCubit>(
+        () => homeModule.providesHomeCubit(gh<_i725.HomeRepository>()));
+    gh.factory<_i834.ComponentsPageFactory>(
+      () => homeModule.providesHome(
+        gh<_i290.AppNavigator>(),
+        gh<_i213.HomeCubit>(),
+        gh<_i114.ComponentContentAdapterBuilder>(),
+      ),
+      instanceName: 'HomePageFactory',
+    );
     return this;
   }
 }
@@ -73,3 +95,5 @@ extension GetItInjectableX on _i174.GetIt {
 class _$NetworkDiModule extends _i769.NetworkDiModule {}
 
 class _$NetworkModule extends _i981.NetworkModule {}
+
+class _$HomeModule extends _i762.HomeModule {}
