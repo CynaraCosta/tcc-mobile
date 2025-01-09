@@ -24,6 +24,8 @@ class BaseSomaIcons implements SomaIcons {
           return gallery;
         case SomaIconsStrings.rotateRight:
           return rotateRight;
+        case SomaIconsStrings.arrowRight:
+          return arrowRight;
         default:
           return message;
       }
@@ -35,6 +37,8 @@ class BaseSomaIcons implements SomaIcons {
           return gallery;
         case SomaIconsStrings.rotateRight:
           return rotateRight;
+        case SomaIconsStrings.arrowRight:
+          return arrowRight;
         default:
           return message;
       }
