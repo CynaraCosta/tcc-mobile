@@ -49,7 +49,7 @@
         {
           "uuid": "5a39cf97-7c9c-43f7-8555-454056c60ea8",
           "body": "{\n  \"widgets\": [\n    {\n      \"id\": \"explorerCarousel\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/explorer-carousel\",\n      \"data\": {},\n      \"style\": {\n        \"bounds\": {\n          \"top\": \"soma_spacing_inline_md\",\n          \"left\": \"soma_spacing_inline_xs\",\n          \"right\": \"soma_spacing_inline_xs\"\n        }\n      }\n    },\n    {\n      \"id\": \"historyCards\",\n      \"state\": \"loading\",\n      \"path\": \"/v1/history-cards\",\n      \"data\": {},\n      \"style\": {\n        \"bounds\": {\n          \"top\": \"soma_spacing_inline_md\",\n          \"left\": \"soma_spacing_inline_xs\",\n          \"right\": \"soma_spacing_inline_xs\"\n        }\n      }\n    }\n  ]\n}",
-          "latency": 0,
+          "latency": 1500,
           "statusCode": 200,
           "label": "",
           "headers": [],
@@ -79,7 +79,7 @@
       "responses": [
         {
           "uuid": "0093120d-8b4b-4e4b-ac07-a440dcf586be",
-          "body": "{\n  \"title\": \"Explorar\",\n  \"cards\": [\n    {\n      \"title\": \"Chat AI\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/chatia\"\n    },\n    {\n      \"title\": \"Documents\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/documents\"\n    }\n  ]\n}",
+          "body": "{\n  \"title\": \"Explorar\",\n  \"cards\": [\n    {\n      \"title\": \"Chat AI\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"message\",\n      \"deeplink\": \"/chat\"\n    },\n    {\n      \"title\": \"Documents\",\n      \"subtitle\": \"Start New Conversation\",\n      \"icon\": \"gallery\",\n      \"deeplink\": \"/documents\"\n    }\n  ]\n}",
           "latency": 1500,
           "statusCode": 200,
           "label": "",

@@ -11,6 +11,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:tcc_mobile/app/presentation/chat/di/chat_module.dart' as _i259;
 import 'package:tcc_mobile/app/presentation/home/di/home_module.dart' as _i762;
 import 'package:tcc_mobile/app/presentation/home/domain/repository/home_repository.dart'
     as _i725;
@@ -53,6 +54,7 @@ extension GetItInjectableX on _i174.GetIt {
     await _i115.HistoryCardsModule().init(gh);
     final networkDiModule = _$NetworkDiModule();
     final networkModule = _$NetworkModule();
+    final pageModule = _$PageModule();
     final homeModule = _$HomeModule();
     gh.factory<_i792.SharedPreferencesRepository>(
         () => networkDiModule.repository);
@@ -62,6 +64,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => networkDiModule.providesNetworkRequestsCubit());
     gh.factory<_i1064.ApiDataSourceDelegate>(
         () => networkModule.providesApiDataSourceDelegate());
+    gh.factory<_i834.ComponentsPageFactory>(
+      () => pageModule.providesChat(gh<_i114.ComponentContentAdapterBuilder>()),
+      instanceName: 'ChatPageFactory',
+    );
     gh.factory<String>(
       () => networkModule.baseUrl,
       instanceName: 'BaseUrl',
@@ -95,5 +101,7 @@ extension GetItInjectableX on _i174.GetIt {
 class _$NetworkDiModule extends _i769.NetworkDiModule {}
 
 class _$NetworkModule extends _i981.NetworkModule {}
+
+class _$PageModule extends _i259.PageModule {}
 
 class _$HomeModule extends _i762.HomeModule {}

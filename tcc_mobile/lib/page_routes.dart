@@ -20,6 +20,18 @@ final homeRoute = PageRoute(
       body: home,
     );
   },
+  routes: [
+    PageRoute(
+      route: Routes.chat,
+      builder: (context, __) {
+        final chatFactory = GetIt.I.get<ComponentsPageFactory>(
+          instanceName: 'ChatPageFactory',
+        );
+        final Widget chat = chatFactory.create();
+        return chat;
+      },
+    ),
+  ],
 );
 
 final routes = <PageRoute>[
