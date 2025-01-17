@@ -7,7 +7,7 @@ import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart';
 @module
 abstract class NetworkModule {
   @Named('BaseUrl')
-  String get baseUrl => 'http://localhost:8080';
+  String get baseUrl => 'https://tcc-server-ltk3.onrender.com';
 
   @Named('NetworkInterceptor')
   Interceptor providePrettyLogger() => GetIt.I.get<NetworkInterceptor>();
