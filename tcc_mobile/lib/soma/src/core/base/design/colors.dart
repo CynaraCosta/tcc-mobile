@@ -61,12 +61,17 @@ class BaseSomaColorBackgroundDark implements SomaColorBackgroundDefaultRange {
 class BaseSomaColorBrand implements SomaColorBrand {
   BaseSomaColorBrand({
     Color? brand,
+    Color? brandSecondary,
   }) {
     this.brand = brand ?? this.brand;
+    this.brandSecondary = brandSecondary ?? this.brandSecondary;
   }
 
   @override
   Color brand = ColorName.brand;
+
+  @override
+  Color brandSecondary = ColorName.brandSecondary;
 }
 
 class BaseSomaColorFont implements SomaColorFont {

@@ -1,5 +1,6 @@
 <resources> 
     <color name="brand">#1ED7CB</color>
+    <color name="brand-secondary">#26585E</color>
     <color name="dark-font-primary">#040404</color>
     <color name="light-font-primary">#FFFFFF</color>
     <color name="dark-background-primary">#121212</color>

@@ -16,6 +16,9 @@ class ColorName {
   /// Color: #1ED7CB
   static const Color brand = Color(0xFF1ED7CB);
 
+  /// Color: #26585E
+  static const Color brandSecondary = Color(0xFF26585E);
+
   /// Color: #121212
   static const Color darkBackgroundPrimary = Color(0xFF121212);
 

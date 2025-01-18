@@ -55,7 +55,9 @@ class SomaColorFontDefaultRange {
 class SomaColorBrand {
   SomaColorBrand({
     required this.brand,
+    required this.brandSecondary,
   });
 
   Color brand;
+  Color brandSecondary;
 }
