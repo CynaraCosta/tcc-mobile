@@ -36,6 +36,10 @@ class BottomChatWidget extends StatelessWidget {
               decoration: InputDecoration(
                 fillColor: bgColor,
                 hintText: ChatStrings.hintTextFieldChat,
+                hintStyle: TextStyle(
+                  fontFamily: tokens.fonts.family.base,
+                  fontWeight: tokens.fonts.weight.regular,
+                ),
                 alignLabelWithHint: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(
