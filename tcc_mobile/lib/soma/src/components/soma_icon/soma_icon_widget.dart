@@ -22,6 +22,7 @@ class SomaIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final designTokens = SomaTheme.getDesignTokensOf(context);
     final icon = designTokens.icons.getIconPath(icon: type, iconName: iconName);
+    final defaultIconColor = SomaContext.primaryFontColorOf(context);
     return GestureDetector(
       onTap: onTap,
       child: SvgPicture.asset(
@@ -33,7 +34,10 @@ class SomaIcon extends StatelessWidget {
                 color!,
                 BlendMode.srcIn,
               )
-            : null,
+            : ColorFilter.mode(
+                defaultIconColor!,
+                BlendMode.srcIn,
+              ),
       ),
     );
   }

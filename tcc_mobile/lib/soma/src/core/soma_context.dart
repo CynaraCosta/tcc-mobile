@@ -32,4 +32,14 @@ class SomaContext extends InheritedWidget {
         ? tokens.colors.background.dark.primary
         : tokens.colors.background.light.primary;
   }
+
+  static Color? primaryFontColorOf(BuildContext context) {
+    var tokens = SomaTheme.getDesignTokensOf(context);
+    final SomaContext? result =
+        context.dependOnInheritedWidgetOfExactType<SomaContext>();
+
+    return result?.isInverse == true
+        ? tokens.colors.fontColor.light.primary
+        : tokens.colors.fontColor.dark.primary;
+  }
 }
