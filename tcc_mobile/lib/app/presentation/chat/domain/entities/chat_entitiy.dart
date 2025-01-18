@@ -2,19 +2,19 @@ import 'package:equatable/equatable.dart';
 
 class ChatEntitiy extends Equatable {
   const ChatEntitiy({
-    required this.response,
-    required this.author,
-    required this.time,
+    required this.message,
+    required this.sender,
+    required this.timestamp,
   });
 
-  final String response;
-  final String author;
-  final String time;
+  final String message;
+  final String sender;
+  final String timestamp;
 
   @override
   List<Object?> get props => [
-    response, 
-    author,
-    time,
-  ];
+        message,
+        sender,
+        timestamp,
+      ];
 }

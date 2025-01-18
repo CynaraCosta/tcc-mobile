@@ -77,7 +77,7 @@ class _ChatPageState extends State<ChatPage> {
                   setState(() {
                     _isLoading = false;
                     _messages.add(
-                      Message(text: state.entity.response, isUser: false),
+                      Message(text: state.entity.message, isUser: false),
                     );
                   });
                 } else if (state is ChatErrorState) {
