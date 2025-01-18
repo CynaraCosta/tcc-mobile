@@ -7,6 +7,7 @@ abstract class SomaIcons {
     required this.rotateRight,
     required this.arrowRight,
     required this.arrowLeft,
+    required this.send,
   });
 
   final String message;
@@ -14,6 +15,7 @@ abstract class SomaIcons {
   final String rotateRight;
   final String arrowRight;
   final String arrowLeft;
+  final String send;
 
   String getIconPath({SomaIconType? icon, String? iconName});
 }

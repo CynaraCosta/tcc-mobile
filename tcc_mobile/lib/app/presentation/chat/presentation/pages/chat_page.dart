@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_cubit.dart';
+import 'package:tcc_mobile/app/presentation/chat/presentation/widgets/bottom_chat_widget.dart';
 import 'package:tcc_mobile/app/presentation/chat/utils/chat_strings.dart';
 import 'package:tcc_mobile/commons/dynamic_widget_builder/dynamic_widget_builder_barrel.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
@@ -44,6 +45,30 @@ class _ChatPageState extends State<ChatPage> {
           text: ChatStrings.appBarChatTitle,
           type: SomaTypographyType.title2,
         ),
+      ),
+      body: Stack(
+        children: [
+          const SingleChildScrollView(
+            child: Column(
+              children: [],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: tokens.spacings.inline.xs,
+                vertical: tokens.spacings.inline.md,
+              ),
+              child: BottomChatWidget(
+                onSubmitted: (question) {
+                  // ignore: avoid_print
+                  print(question);
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

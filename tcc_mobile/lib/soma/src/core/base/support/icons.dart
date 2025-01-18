@@ -18,6 +18,9 @@ class BaseSomaIcons implements SomaIcons {
   String get arrowLeft => Assets.icons.arrowLeft;
 
   @override
+  String get send => Assets.icons.send;
+
+  @override
   String getIconPath({SomaIconType? icon, String? iconName}) {
     if (icon != null) {
       switch (icon.value) {
@@ -31,6 +34,8 @@ class BaseSomaIcons implements SomaIcons {
           return arrowRight;
         case SomaIconsStrings.arrowLeft:
           return arrowLeft;
+        case SomaIconsStrings.send:
+          return send;
         default:
           return message;
       }
@@ -46,6 +51,8 @@ class BaseSomaIcons implements SomaIcons {
           return arrowRight;
         case SomaIconsStrings.arrowLeft:
           return arrowLeft;
+        case SomaIconsStrings.send:
+          return send;
         default:
           return message;
       }

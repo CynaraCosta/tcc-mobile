@@ -5,7 +5,8 @@ enum SomaIconType {
   gallery(SomaIconsStrings.gallery),
   rotateRight(SomaIconsStrings.rotateRight),
   arrowRight(SomaIconsStrings.arrowRight),
-  arrowLeft(SomaIconsStrings.arrowLeft);
+  arrowLeft(SomaIconsStrings.arrowLeft),
+  send(SomaIconsStrings.send);
 
   const SomaIconType(this.value);
 

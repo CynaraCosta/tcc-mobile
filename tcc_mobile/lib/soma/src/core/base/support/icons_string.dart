@@ -6,4 +6,5 @@ class SomaIconsStrings {
   static const String rotateRight = 'rotate-right';
   static const String arrowRight = 'arrow-right';
   static const String arrowLeft = 'arrow-left';
+  static const String send = 'send';
 }
