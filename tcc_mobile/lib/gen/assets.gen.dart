@@ -42,6 +42,9 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/arrow-left.svg
+  String get arrowLeft => 'assets/icons/arrow-left.svg';
+
   /// File path: assets/icons/arrow-right.svg
   String get arrowRight => 'assets/icons/arrow-right.svg';
 
@@ -55,7 +58,8 @@ class $AssetsIconsGen {
   String get rotateRight => 'assets/icons/rotate-right.svg';
 
   /// List of all assets
-  List<String> get values => [arrowRight, gallery, message, rotateRight];
+  List<String> get values =>
+      [arrowLeft, arrowRight, gallery, message, rotateRight];
 }
 
 class $AssetsImagesGen {

@@ -4,7 +4,8 @@ enum SomaIconType {
   message(SomaIconsStrings.message),
   gallery(SomaIconsStrings.gallery),
   rotateRight(SomaIconsStrings.rotateRight),
-  arrowRight(SomaIconsStrings.arrowRight);
+  arrowRight(SomaIconsStrings.arrowRight),
+  arrowLeft(SomaIconsStrings.arrowLeft);
 
   const SomaIconType(this.value);
 
@@ -12,6 +13,9 @@ enum SomaIconType {
 }
 
 enum SomaIconSize {
+  /// 8 x 8
+  xs(8),
+
   /// 16 x 16
   sm(16),
 

@@ -6,11 +6,14 @@ abstract class SomaIcons {
     required this.gallery,
     required this.rotateRight,
     required this.arrowRight,
+    required this.arrowLeft,
   });
 
   final String message;
   final String gallery;
   final String rotateRight;
   final String arrowRight;
+  final String arrowLeft;
+
   String getIconPath({SomaIconType? icon, String? iconName});
 }

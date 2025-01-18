@@ -12,6 +12,10 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:tcc_mobile/app/presentation/chat/di/chat_module.dart' as _i259;
+import 'package:tcc_mobile/app/presentation/chat/domain/repository/chat_repository.dart'
+    as _i910;
+import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_cubit.dart'
+    as _i346;
 import 'package:tcc_mobile/app/presentation/home/di/home_module.dart' as _i762;
 import 'package:tcc_mobile/app/presentation/home/domain/repository/home_repository.dart'
     as _i725;
@@ -54,8 +58,8 @@ extension GetItInjectableX on _i174.GetIt {
     await _i115.HistoryCardsModule().init(gh);
     final networkDiModule = _$NetworkDiModule();
     final networkModule = _$NetworkModule();
-    final pageModule = _$PageModule();
     final homeModule = _$HomeModule();
+    final pageModule = _$PageModule();
     gh.factory<_i792.SharedPreferencesRepository>(
         () => networkDiModule.repository);
     gh.factory<_i599.NetworkInterceptor>(
@@ -64,10 +68,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => networkDiModule.providesNetworkRequestsCubit());
     gh.factory<_i1064.ApiDataSourceDelegate>(
         () => networkModule.providesApiDataSourceDelegate());
-    gh.factory<_i834.ComponentsPageFactory>(
-      () => pageModule.providesChat(gh<_i114.ComponentContentAdapterBuilder>()),
-      instanceName: 'ChatPageFactory',
-    );
     gh.factory<String>(
       () => networkModule.baseUrl,
       instanceName: 'BaseUrl',
@@ -84,8 +84,20 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i757.AppNavigatorImpl(gh<_i290.AppRouterConfig>()));
     gh.factory<_i725.HomeRepository>(() =>
         homeModule.providesHomeRepository(gh<_i1064.ApiDataSourceDelegate>()));
+    gh.factory<_i910.ChatRepository>(() =>
+        pageModule.providesChatRepository(gh<_i1064.ApiDataSourceDelegate>()));
+    gh.factory<_i346.ChatCubit>(
+        () => pageModule.providesChatCubit(gh<_i910.ChatRepository>()));
     gh.factory<_i213.HomeCubit>(
         () => homeModule.providesHomeCubit(gh<_i725.HomeRepository>()));
+    gh.factory<_i834.ComponentsPageFactory>(
+      () => pageModule.providesChat(
+        gh<_i114.ComponentContentAdapterBuilder>(),
+        gh<_i290.AppNavigator>(),
+        gh<_i346.ChatCubit>(),
+      ),
+      instanceName: 'ChatPageFactory',
+    );
     gh.factory<_i834.ComponentsPageFactory>(
       () => homeModule.providesHome(
         gh<_i290.AppNavigator>(),
@@ -102,6 +114,6 @@ class _$NetworkDiModule extends _i769.NetworkDiModule {}
 
 class _$NetworkModule extends _i981.NetworkModule {}
 
-class _$PageModule extends _i259.PageModule {}
-
 class _$HomeModule extends _i762.HomeModule {}
+
+class _$PageModule extends _i259.PageModule {}

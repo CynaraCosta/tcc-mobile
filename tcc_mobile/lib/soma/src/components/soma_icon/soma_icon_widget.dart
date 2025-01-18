@@ -8,6 +8,7 @@ class SomaIcon extends StatelessWidget {
     this.type,
     this.size,
     this.color,
+    this.onTap,
     super.key,
   });
 
@@ -15,21 +16,25 @@ class SomaIcon extends StatelessWidget {
   final SomaIconType? type;
   final SomaIconSize? size;
   final Color? color;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final designTokens = SomaTheme.getDesignTokensOf(context);
     final icon = designTokens.icons.getIconPath(icon: type, iconName: iconName);
-    return SvgPicture.asset(
-      icon,
-      width: size?.size ?? designTokens.spacings.inline.xs,
-      height: size?.size ?? designTokens.spacings.inline.xs,
-      colorFilter: color != null
-          ? ColorFilter.mode(
-              color!,
-              BlendMode.srcIn,
-            )
-          : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: SvgPicture.asset(
+        icon,
+        width: size?.size ?? designTokens.spacings.inline.xs,
+        height: size?.size ?? designTokens.spacings.inline.xs,
+        colorFilter: color != null
+            ? ColorFilter.mode(
+                color!,
+                BlendMode.srcIn,
+              )
+            : null,
+      ),
     );
   }
 }
