@@ -16,9 +16,12 @@ class ChatRepositoryImpl implements ChatRepository {
   Future<ChatEntitiy> getChatResponse(String question) async {
     return await delegate
         .fetchAsFuture<ChatModel>(
-          params: const RequestParams(
+          params: RequestParams(
             endpoint: '/v1/send-question',
             requestType: RequestType.post,
+            body: {
+              'question': question,
+            },
           ),
           mapper: ChatModel.fromJson,
         )
