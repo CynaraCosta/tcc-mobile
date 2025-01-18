@@ -27,6 +27,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final List<Message> _messages = [];
+  bool _isLoading = false;
 
   void _sendMessage(String question) {
     setState(() {
@@ -50,7 +51,8 @@ class _ChatPageState extends State<ChatPage> {
           elevation: 0,
           backgroundColor: backgroundColor,
           leading: Padding(
-            padding: EdgeInsets.symmetric(horizontal: tokens.spacings.inline.xs),
+            padding:
+                EdgeInsets.symmetric(horizontal: tokens.spacings.inline.xs),
             child: SomaIcon(
               type: SomaIconType.arrowLeft,
               size: SomaIconSize.md,
@@ -67,13 +69,20 @@ class _ChatPageState extends State<ChatPage> {
           children: [
             BlocListener<ChatCubit, ChatState>(
               listener: (context, state) {
-                if (state is ChatSuccessState) {
+                if (state is ChatLoadingState) {
                   setState(() {
-                    _messages
-                        .add(Message(text: state.entity.response, isUser: false));
+                    _isLoading = true;
+                  });
+                } else if (state is ChatSuccessState) {
+                  setState(() {
+                    _isLoading = false;
+                    _messages.add(
+                      Message(text: state.entity.response, isUser: false),
+                    );
                   });
                 } else if (state is ChatErrorState) {
                   setState(() {
+                    _isLoading = false;
                     _messages.add(
                       const Message(
                         text: 'Erro ao processar a mensagem.',
@@ -88,8 +97,21 @@ class _ChatPageState extends State<ChatPage> {
                   Expanded(
                     child: ListView.builder(
                       reverse: false,
-                      itemCount: _messages.length,
+                      itemCount: _messages.length + (_isLoading ? 1 : 0),
                       itemBuilder: (context, index) {
+                        if (_isLoading && index == _messages.length) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: tokens.spacings.inline.xxs,
+                              horizontal: tokens.spacings.inline.xs,
+                            ),
+                            child: const BoxChatWidget(
+                              text: '',
+                              isUser: false,
+                              isLoading: true,
+                            ),
+                          );
+                        }
                         final message = _messages[index];
                         return Padding(
                           padding: EdgeInsets.symmetric(

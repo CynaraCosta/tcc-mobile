@@ -131,6 +131,37 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "2fa9cf14-a1d4-448a-80bc-e62daaf559bc",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "v1/send-question",
+      "responses": [
+        {
+          "uuid": "46fdb668-062a-49b9-843a-1a8bc903ef6d",
+          "body": "{\n  \"response\": \"Response coming from the RAG for the question: '{user_question}'\",\n  \"author\": \"Chatbot\",\n  \"time\": \"time stamp\"\n}",
+          "latency": 2000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -149,6 +180,10 @@
     {
       "type": "route",
       "uuid": "797b61b4-dd94-419d-801b-e45097e23b97"
+    },
+    {
+      "type": "route",
+      "uuid": "2fa9cf14-a1d4-448a-80bc-e62daaf559bc"
     }
   ],
   "proxyMode": false,
