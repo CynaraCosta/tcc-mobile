@@ -3,35 +3,35 @@ import 'package:tcc_mobile/app/presentation/chat/domain/entities/chat_entitiy.da
 
 class ChatModel extends Equatable {
   const ChatModel({
-    required this.response,
-    required this.author,
-    required this.time,
+    required this.message,
+    required this.sender,
+    required this.timestamp,
   });
 
   factory ChatModel.fromJson(dynamic json) {
     return ChatModel(
-      response: json['response'],
-      author: json['author'],
-      time: json['time'],
+      message: json['message'],
+      sender: json['sender'],
+      timestamp: json['timestamp'],
     );
   }
 
   ChatEntitiy toEntity() {
     return ChatEntitiy(
-      response: response,
-      author: author,
-      time: time,
+      message: message,
+      sender: sender,
+      timestamp: timestamp,
     );
   }
 
-  final String response;
-  final String author;
-  final String time;
+  final String message;
+  final String sender;
+  final String timestamp;
 
   @override
   List<Object?> get props => [
-        response,
-        author,
-        time,
+        message,
+        sender,
+        timestamp,
       ];
 }

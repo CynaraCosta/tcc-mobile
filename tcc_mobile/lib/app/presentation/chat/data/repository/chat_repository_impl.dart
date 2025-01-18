@@ -14,13 +14,16 @@ class ChatRepositoryImpl implements ChatRepository {
 
   @override
   Future<ChatEntitiy> getChatResponse(String question) async {
+    final timestamp = DateTime.now().toIso8601String();
     return await delegate
         .fetchAsFuture<ChatModel>(
           params: RequestParams(
             endpoint: '/v1/send-question',
             requestType: RequestType.post,
             body: {
-              'question': question,
+              'message': question,
+              'sender': 'doctor',
+              'timestamp': timestamp,
             },
           ),
           mapper: ChatModel.fromJson,
