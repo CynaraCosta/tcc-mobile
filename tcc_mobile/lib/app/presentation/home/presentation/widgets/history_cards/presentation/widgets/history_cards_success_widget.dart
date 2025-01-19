@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:tcc_mobile/app/presentation/home/presentation/widgets/history_cards/resources/history_cards_strings.dart';
 import 'package:tcc_mobile/commons/router/src/app_navigator.dart';
 import 'package:tcc_mobile/soma/soma.dart';
 import '../../domain/entity/history_cards_entity.dart';
@@ -29,7 +28,7 @@ class HistoryCardsSuccessWidget extends StatelessWidget {
                 type: SomaTypographyType.title1,
               ),
               SomaText(
-                text: HistoryCardsStrings.seeMore,
+                text: entity.subtitle ?? '',
                 type: SomaTypographyType.title3,
                 customTextStyle: TextStyle(
                   color: tokens.colors.brand.brand,
@@ -38,7 +37,7 @@ class HistoryCardsSuccessWidget extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: tokens.spacings.inline.xs,
+            height: tokens.spacings.inline.xxs,
           ),
           ListView.builder(
             shrinkWrap: true,
@@ -59,7 +58,7 @@ class HistoryCardsSuccessWidget extends StatelessWidget {
                     },
                   ),
                   if (index != entity.cards.length - 1)
-                    SizedBox(height: tokens.spacings.inline.xs),
+                    SizedBox(height: tokens.spacings.inline.xxs),
                 ],
               );
             },

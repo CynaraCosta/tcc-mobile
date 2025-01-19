@@ -4,11 +4,13 @@ class HistoryCardsEntity extends Equatable {
   const HistoryCardsEntity({
     required this.title,
     required this.cards,
+    this.subtitle,
   });
 
   factory HistoryCardsEntity.fromJson(dynamic json) {
     return HistoryCardsEntity(
       title: json['title'],
+      subtitle: json['subtitle'],
       cards: (json['cards'] as List)
           .map((card) => CardHistoryCardsEntity.fromJson(card))
           .toList(),
@@ -16,12 +18,14 @@ class HistoryCardsEntity extends Equatable {
   }
 
   final String title;
+  final String? subtitle;
   final List<CardHistoryCardsEntity> cards;
 
   @override
   List<Object?> get props => [
         title,
         cards,
+        subtitle,
       ];
 }
 

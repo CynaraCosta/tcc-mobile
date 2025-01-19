@@ -25,7 +25,7 @@ class ExplorerCarouselSuccessWidget extends StatelessWidget {
           type: SomaTypographyType.title1,
         ),
         SizedBox(
-          height: tokens.spacings.inline.xs,
+          height: tokens.spacings.inline.xxs,
         ),
         CarouselSlider.builder(
           itemCount: entity.cards.length,

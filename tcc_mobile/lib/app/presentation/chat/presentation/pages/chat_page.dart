@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tcc_mobile/app/presentation/chat/data/model/message_model.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_cubit.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_state.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/widgets/bottom_chat_widget.dart';
@@ -46,6 +47,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     final tokens = SomaTheme.getDesignTokensOf(context);
     final backgroundColor = SomaContext.primaryBackgroundColorOf(context);
+    const paddingBottomColumn = 72.0;
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => widget.chatCubit),
@@ -56,8 +58,10 @@ class _ChatPageState extends State<ChatPage> {
           elevation: 0,
           backgroundColor: backgroundColor,
           leading: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: tokens.spacings.inline.xs),
+            padding: EdgeInsets.symmetric(
+              horizontal: tokens.spacings.inline.xs,
+              // vertical: tokens.spacings.inline.xs,
+            ),
             child: SomaIcon(
               type: SomaIconType.arrowLeft,
               size: SomaIconSize.md,
@@ -101,41 +105,44 @@ class _ChatPageState extends State<ChatPage> {
                   });
                 }
               },
-              child: Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      reverse: false,
-                      itemCount: _messages.length + (_isLoading ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (_isLoading && index == _messages.length) {
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: paddingBottomColumn),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        reverse: false,
+                        itemCount: _messages.length + (_isLoading ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (_isLoading && index == _messages.length) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: tokens.spacings.inline.xxs,
+                                horizontal: tokens.spacings.inline.xs,
+                              ),
+                              child: const BoxChatWidget(
+                                text: '',
+                                isUser: false,
+                                isLoading: true,
+                              ),
+                            );
+                          }
+                          final message = _messages[index];
                           return Padding(
                             padding: EdgeInsets.symmetric(
                               vertical: tokens.spacings.inline.xxs,
                               horizontal: tokens.spacings.inline.xs,
                             ),
-                            child: const BoxChatWidget(
-                              text: '',
-                              isUser: false,
-                              isLoading: true,
+                            child: BoxChatWidget(
+                              text: message.text,
+                              isUser: message.isUser,
                             ),
                           );
-                        }
-                        final message = _messages[index];
-                        return Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: tokens.spacings.inline.xxs,
-                            horizontal: tokens.spacings.inline.xs,
-                          ),
-                          child: BoxChatWidget(
-                            text: message.text,
-                            isUser: message.isUser,
-                          ),
-                        );
-                      },
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Align(
@@ -157,14 +164,3 @@ class _ChatPageState extends State<ChatPage> {
   }
 }
 
-class Message {
-  const Message({
-    required this.text,
-    required this.isUser,
-    this.conversationId,
-  });
-
-  final String text;
-  final bool isUser;
-  final String? conversationId;
-}
