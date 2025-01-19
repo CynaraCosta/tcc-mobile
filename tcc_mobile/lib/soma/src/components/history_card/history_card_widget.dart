@@ -35,21 +35,25 @@ class HistoryCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  SomaIcon(
-                    iconName: icon,
-                    color: style.iconColor,
-                    size: SomaIconSize.md,
-                  ),
-                  SizedBox(
-                    width: tokens.spacings.inline.xs,
-                  ),
-                  SomaText(
-                    text: title,
-                    type: SomaTypographyType.description,
-                  ),
-                ],
+              Expanded(
+                child: Row(
+                  children: [
+                    SomaIcon(
+                      iconName: icon,
+                      color: style.iconColor,
+                      size: SomaIconSize.md,
+                    ),
+                    SizedBox(
+                      width: tokens.spacings.inline.xs,
+                    ),
+                    Flexible(
+                      child: SomaText(
+                        text: title,
+                        type: SomaTypographyType.description,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SomaIcon(
                 type: SomaIconType.arrowRight,

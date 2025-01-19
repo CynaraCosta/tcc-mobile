@@ -7,6 +7,7 @@ class SomaText extends StatelessWidget {
     this.type,
     this.customTextStyle,
     this.align,
+    this.maxLines,
     super.key,
   });
 
@@ -14,6 +15,7 @@ class SomaText extends StatelessWidget {
   final SomaTypographyType? type;
   final TextStyle? customTextStyle;
   final TextAlign? align;
+  final int? maxLines;
 
   TextStyle getStyle(
     BuildContext context,
@@ -52,6 +54,8 @@ class SomaText extends StatelessWidget {
       text,
       style: effectieStyle,
       textAlign: align ?? TextAlign.center,
+      overflow: TextOverflow.ellipsis,
+      maxLines: maxLines,
     );
   }
 }
