@@ -28,13 +28,18 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   final List<Message> _messages = [];
   bool _isLoading = false;
+  String? conversationId;
 
   void _sendMessage(String question) {
     setState(() {
       _messages.add(Message(text: question, isUser: true));
     });
 
-    widget.chatCubit.sendQuestion(question);
+    _messages.length == 3
+        ? setState(() => conversationId = _messages[1].conversationId)
+        : null;
+
+    widget.chatCubit.sendQuestion(question, conversationId);
   }
 
   @override
@@ -77,7 +82,11 @@ class _ChatPageState extends State<ChatPage> {
                   setState(() {
                     _isLoading = false;
                     _messages.add(
-                      Message(text: state.entity.message, isUser: false),
+                      Message(
+                        text: state.entity.message,
+                        isUser: false,
+                        conversationId: state.entity.conversationId,
+                      ),
                     );
                   });
                 } else if (state is ChatErrorState) {
@@ -152,8 +161,10 @@ class Message {
   const Message({
     required this.text,
     required this.isUser,
+    this.conversationId,
   });
 
   final String text;
   final bool isUser;
+  final String? conversationId;
 }

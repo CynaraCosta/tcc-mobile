@@ -6,6 +6,7 @@ class ChatModel extends Equatable {
     required this.message,
     required this.sender,
     required this.timestamp,
+    this.conversationId,
   });
 
   factory ChatModel.fromJson(dynamic json) {
@@ -13,6 +14,7 @@ class ChatModel extends Equatable {
       message: json['message'],
       sender: json['sender'],
       timestamp: json['timestamp'],
+      conversationId: json['_id'],
     );
   }
 
@@ -21,17 +23,20 @@ class ChatModel extends Equatable {
       message: message,
       sender: sender,
       timestamp: timestamp,
+      conversationId: conversationId,
     );
   }
 
   final String message;
   final String sender;
   final String timestamp;
+  final String? conversationId;
 
   @override
   List<Object?> get props => [
         message,
         sender,
         timestamp,
+        conversationId,
       ];
 }

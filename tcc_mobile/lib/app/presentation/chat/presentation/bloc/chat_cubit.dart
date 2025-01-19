@@ -9,11 +9,11 @@ class ChatCubit extends Cubit<ChatState> {
 
   final ChatRepository repository;
 
-  Future<void> sendQuestion(String question) async {
+  Future<void> sendQuestion(String question, String? conversationId) async {
     emit(const ChatLoadingState());
 
     try {
-      final result = await repository.getChatResponse(question);
+      final result = await repository.getChatResponse(question, conversationId);
       emit(ChatSuccessState(entity: result));
     } catch (_) {
       emit(const ChatErrorState());
