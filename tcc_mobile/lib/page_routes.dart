@@ -23,11 +23,19 @@ final homeRoute = PageRoute(
   routes: [
     PageRoute(
       route: Routes.chat,
-      builder: (context, __) {
+      builder: (context, state) {
+        final conversationId = state.queryParameters['id'];
+
         final chatFactory = GetIt.I.get<ComponentsPageFactory>(
           instanceName: 'ChatPageFactory',
         );
-        final Widget chat = chatFactory.create();
+        final Widget chat = chatFactory.create(
+          [
+            {
+              'conversationId': conversationId,
+            }
+          ],
+        );
         return chat;
       },
     ),

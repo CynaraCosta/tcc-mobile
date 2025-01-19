@@ -30,6 +30,7 @@ class ChatPageFactory extends ComponentsPageFactory {
       adapter: adapter,
       appNavigator: navigator,
       chatCubit: chatCubit,
+      conversationId: params[0]['conversationId'],
     );
   }
 }

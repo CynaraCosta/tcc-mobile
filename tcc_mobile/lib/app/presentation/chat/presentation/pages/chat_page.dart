@@ -15,12 +15,14 @@ class ChatPage extends StatefulWidget {
     required this.appNavigator,
     required this.adapter,
     required this.chatCubit,
+    this.conversationId,
     super.key,
   });
 
   final AppNavigator appNavigator;
   final ComponentContentAdapter adapter;
   final ChatCubit chatCubit;
+  final String? conversationId;
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -163,4 +165,3 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 }
-
