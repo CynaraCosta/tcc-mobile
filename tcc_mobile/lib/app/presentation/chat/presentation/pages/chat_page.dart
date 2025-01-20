@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tcc_mobile/app/presentation/chat/data/model/message_model.dart';
+import 'package:tcc_mobile/app/presentation/chat/domain/entities/message_entity.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_cubit.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/bloc/chat_state.dart';
 import 'package:tcc_mobile/app/presentation/chat/presentation/widgets/bottom_chat_widget.dart';
@@ -29,20 +29,55 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  final List<Message> _messages = [];
+  final List<MessageEntity> _messages = [];
   bool _isLoading = false;
   String? conversationId;
 
-  void _sendMessage(String question) {
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.conversationId != null) {
+      _fetchConversationMessages(widget.conversationId!);
+    }
+  }
+
+  void _fetchConversationMessages(String conversationId) async {
     setState(() {
-      _messages.add(Message(text: question, isUser: true));
+      _isLoading = true;
     });
 
-    _messages.length == 3
-        ? setState(() => conversationId = _messages[1].conversationId)
-        : null;
+    try {
+      final listMessages = await widget.chatCubit.getMessagesByConversationId(
+        conversationId,
+      );
 
-    widget.chatCubit.sendQuestion(question, conversationId);
+      setState(() {
+        _messages.addAll(listMessages.messages);
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  void _sendMessage(String question) {
+    setState(() {
+      _messages.add(MessageEntity(text: question, isUser: true));
+    });
+
+    if (widget.conversationId == null) {
+      _messages.length == 3
+          ? setState(() => conversationId = _messages[1].conversationId)
+          : null;
+    }
+
+    widget.chatCubit.sendQuestion(
+      question,
+      widget.conversationId ?? conversationId,
+    );
   }
 
   @override
@@ -88,7 +123,7 @@ class _ChatPageState extends State<ChatPage> {
                   setState(() {
                     _isLoading = false;
                     _messages.add(
-                      Message(
+                      MessageEntity(
                         text: state.entity.message,
                         isUser: false,
                         conversationId: state.entity.conversationId,
@@ -99,7 +134,7 @@ class _ChatPageState extends State<ChatPage> {
                   setState(() {
                     _isLoading = false;
                     _messages.add(
-                      const Message(
+                      const MessageEntity(
                         text: 'Erro ao processar a mensagem.',
                         isUser: false,
                       ),

@@ -1,5 +1,7 @@
 import 'package:tcc_mobile/app/presentation/chat/data/model/chat_model.dart';
+import 'package:tcc_mobile/app/presentation/chat/data/model/message_model.dart';
 import 'package:tcc_mobile/app/presentation/chat/domain/entities/chat_entitiy.dart';
+import 'package:tcc_mobile/app/presentation/chat/domain/entities/message_entity.dart';
 import 'package:tcc_mobile/app/presentation/chat/domain/repository/chat_repository.dart';
 import 'package:tcc_mobile/commons/network/api_data_source_delegate.dart';
 import 'package:tcc_mobile/commons/network/data/request_params.dart';
@@ -33,6 +35,24 @@ class ChatRepositoryImpl implements ChatRepository {
             },
           ),
           mapper: ChatModel.fromJson,
+        )
+        .then((value) => value.toEntity());
+  }
+
+  @override
+  Future<MessagesEntity> getMessagesByConversationId(
+    String conversationId,
+  ) async {
+    return await delegate
+        .fetchAsFuture(
+          params: RequestParams(
+            endpoint: '/v1/get-conversation',
+            requestType: RequestType.get,
+            body: {
+              'conversationId': conversationId,
+            },
+          ),
+          mapper: MessagesModel.fromJson,
         )
         .then((value) => value.toEntity());
   }
