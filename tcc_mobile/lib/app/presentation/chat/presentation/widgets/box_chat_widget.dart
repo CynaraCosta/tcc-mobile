@@ -49,7 +49,7 @@ class BoxChatWidget extends StatelessWidget {
                         ? tokens.colors.fontColor.dark.primary
                         : tokens.colors.fontColor.light.primary,
                   ),
-                  maxLines: 10,
+                  maxLines: 1000,
                 ),
         ),
       ),
