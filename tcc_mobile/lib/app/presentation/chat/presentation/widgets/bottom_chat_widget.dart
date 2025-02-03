@@ -33,6 +33,9 @@ class BottomChatWidget extends StatelessWidget {
             child: TextField(
               controller: _controller,
               onSubmitted: _handleSubmission,
+              style: TextStyle(
+                color: SomaContext.primaryFontColorOf(context),
+              ),
               onTapOutside: (event) {
                 FocusManager.instance.primaryFocus?.unfocus();
               },
